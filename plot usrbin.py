@@ -16,17 +16,17 @@ total=0
 
 # opening and creating new .txt file 
 with open( 
-    "muon_production_40_plot.txt", 'r') as r, open( 
+    "muon_production_40_plot.dat", 'r') as r, open( 
         'muon_production_40_plot2.txt', 'w') as o: 
       
     for line in r: 
         #strip() function 
         if line.strip(): 
-            o.write(line) 
-
+            o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                           #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
 # opening and creating new .txt file 
 with open( 
-    "muon_production_39_plot.txt", 'r') as r, open( 
+    "muon_production_39_plot.dat", 'r') as r, open( 
         'muon_production_39_plot2.txt', 'w') as o: 
       
     for line in r: 
@@ -54,7 +54,7 @@ f=0
 g=0
 
 total=0
-y, x, z, err = np.loadtxt('muon_production_39_plot2.dat', unpack=True)
+y, x, z, err = np.loadtxt('muon_production_39_plot2.txt', unpack=True)
 length = len(z)
 
 print(len(z))
