@@ -13,48 +13,95 @@ q=[]
 avenergy=[]
 total=0
 
-
-# opening and creating new .txt file 
-with open( 
-    "muon_production_40_plot.dat", 'r') as r, open( 
-        'muon_production_40_plot2.txt', 'w') as o: 
-      
-    for line in r: 
-        #strip() function 
-        if line.strip(): 
-            o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
-                                                                           #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
-# opening and creating new .txt file 
-with open( 
-    "muon_production_39_plot.dat", 'r') as r, open( 
-        'muon_production_39_plot2.txt', 'w') as o: 
-      
-    for line in r: 
-        #strip() function 
-        if line.strip(): 
-            o.write(line) 
-  
-
-
-
-y, x, z, err = np.loadtxt('muon_production_40_plot2.txt', unpack=True)
-length = len(z)
-
-while g<len(z):
-    if z[g]>0:
-        #print("pixel number:",g)
-        q.append(g)
-    g=g+1
+if particle1=='muon':
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_42_plot.dat", 'r') as r, open( 
+            'muon_production_42_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_39_plot.dat", 'r') as r, open( 
+            'muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
 
 
 
+    y, x, z, err = np.loadtxt('muon_production_42_plot2.txt', unpack=True)
+    length = len(z)
 
-particle ="energyelec"
-f=0
-g=0
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
 
-total=0
-y, x, z, err = np.loadtxt('muon_production_39_plot2.txt', unpack=True)
+
+
+
+    particle ="energymuon"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('muon_production_39_plot2.txt', unpack=True)
+
+
+if particle1=='elec':
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli-np-collim_chamber_lead_box/2_mags_full_setup_extra_mag_and_mag_up_16/muon_production_40_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli-np-collim_chamber_lead_box/2_mags_full_setup_extra_mag_and_mag_up_16/muon_production_40_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli-np-collim_chamber_lead_box/2_mags_full_setup_extra_mag_and_mag_up_16/muon_production_39_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli-np-collim_chamber_lead_box/2_mags_full_setup_extra_mag_and_mag_up_16/muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
+
+
+
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli-np-collim_chamber_lead_box/2_mags_full_setup_extra_mag_and_mag_up_16/muon_production_40_plot2.txt', unpack=True)
+    length = len(z)
+
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
+
+
+
+
+    particle ="energyelec"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli-np-collim_chamber_lead_box/2_mags_full_setup_extra_mag_and_mag_up_16/muon_production_39_plot2.txt', unpack=True)
+
+
+
 length = len(z)
 
 print(len(z))
@@ -63,8 +110,11 @@ checkedpixels=[]
 perc=0
 
 listofclustersize=[]
+
+do='yes'
+
 #normalising the energy colourbar and setting limit
-if particle=="energyelec":
+if do=="yes":
     while g<len(z):
         if (round((g/len(z))*100))!=perc:
             perc=(round((g/len(z))*100))
@@ -90,7 +140,7 @@ if particle=="energyelec":
         n=0
         if (g not in checkedpixels):
             print(g)
-        if z[g]>0.0000001 and ((g not in checkedpixels)):    #if pixel value is non zero and pixel hasnt been counted in a previous cluster
+        if z[g]>0 and ((g not in checkedpixels)):    #if pixel value is non zero and pixel hasnt been counted in a previous cluster
             prevpixel=[]
             pixel=g
             pixelist=[g]
@@ -104,6 +154,7 @@ if particle=="energyelec":
                 if ((pixelist[0] in prevpixel)==True):
                     pixelist.remove(pixelist[0])
                     continue
+                
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
@@ -114,7 +165,7 @@ if particle=="energyelec":
                 #print(pixel)
                 check=0
                 try:
-                    if z[pixel+(256)]>0.0000001 and ((pixel+(256) in prevpixel)==False):
+                    if z[pixel+(256)]>0 and ((pixel+(256) in prevpixel)==False):
                         check=1
                         #print(check)
                         pixelist.append(pixel+(256))
@@ -122,43 +173,43 @@ if particle=="energyelec":
                     print()
                 
                 try:
-                    if z[pixel+(255)]>0.0000001 and ((pixel+(255) in prevpixel)==False):
+                    if z[pixel+(255)]>0 and ((pixel+(255) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(255))
                 except:
                     print()
                 try:
-                    if z[pixel+(257)]>0.0000001 and ((pixel+(257) in prevpixel)==False):
+                    if z[pixel+(257)]>0 and ((pixel+(257) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(257))
                 except:
                     print()
                 try:
-                    if z[pixel-(256)]>0.0000001 and ((pixel-(256) in prevpixel)==False):
+                    if z[pixel-(256)]>0 and ((pixel-(256) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(256))
                 except:
                     print()
                 try:
-                    if z[pixel-(255)]>0.0000001 and ((pixel-(255) in prevpixel)==False):
+                    if z[pixel-(255)]>0 and ((pixel-(255) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(255))
                 except:
                     print()
                 try:
-                    if z[pixel-(257)]>0.0000001 and ((pixel-(257) in prevpixel)==False):
+                    if z[pixel-(257)]>0 and ((pixel-(257) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(257))
                 except:
                     print()
                 try:
-                    if z[pixel+1]>0.0000001 and ((pixel+(1) in prevpixel)==False):
+                    if z[pixel+1]>0 and ((pixel+(1) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(1))
                 except:
                     print()
                 try:
-                    if z[pixel-1]>0.0000001 and ((pixel-(1) in prevpixel)==False):
+                    if z[pixel-1]>0 and ((pixel-(1) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-1)
                 except:
@@ -166,13 +217,13 @@ if particle=="energyelec":
                 prevpixel.append(pixel)
                 checkedpixels.append(pixel)
                 pixelist.remove(pixel)
-                if check==0:
-                    #print('N HERE:',n)
-                    #print(n)
-                    e=1       # CHECK IS ZERO so set e equal to 1 to indicate that for pixel g, all pixels in this cluster have been found. 
-                    if n>20:
-                        for k in range(0,len(clusterpixels)):
-                            z[clusterpixels[k]]=0
+            if check==0:
+                #print('N HERE:',n)
+                #print(n)
+                e=1       # CHECK IS ZERO so set e equal to 1 to indicate that for pixel g, all pixels in this cluster have been found. 
+                if n>2000:
+                    for k in range(0,len(clusterpixels)):
+                        z[clusterpixels[k]]=0
         if n>0:
             listofclustersize.append(n)
         g=g+1
