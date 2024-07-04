@@ -6,6 +6,11 @@ import matplotlib.colors as colors
 from matplotlib import ticker
 import statistics as st
 
+
+#MATPLOTLIB INTERACTIVE MODE TURNED OFF (FOR PLOTS)#
+
+plt.ioff()
+
 particle1 ="muon"
 f=0
 g=0
@@ -113,9 +118,10 @@ listofclustersize=[]
 meanaveenergyincluster=[]
 modeaveenergyincluster=[]
 maxenergyincluster=[]
+totalenergyincluster=[]
 
 
-primaries=18431863354
+primaries=18131863354
 if particle1=='muon':
     primaries=250000
 
@@ -156,6 +162,7 @@ if do=="yes":
             n=0
             e=0
             clusterenergy=[]
+            modeclusterenergy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -166,6 +173,7 @@ if do=="yes":
                 clusterpixels.append(pixel)
                 n=n+1
                 clusterenergy.append(z[pixel])
+                modeclusterenergy.append(z[pixel]*(10**6))
                 if g==10679:
                     print(pixelist)
                     print('HERE FOR EACH PIXEL')
@@ -249,14 +257,26 @@ if do=="yes":
                         z[clusterpixels[k]]=0
         if n>0:
             meanaveenergyincluster.append(np.mean(clusterenergy))
-            modeaveenergyincluster.append(st.mode(clusterenergy))
+            roundformode1=((np.array(modeclusterenergy))/5)
+            roundformode2=np.around(roundformode1,0)
+            roundformode=list((roundformode2)*5)
+            roundformode.sort()
+            roundformode=roundformode/max(roundformode)
+            #print('LOOK HERE:')
+            #print(modeclusterenergy)
+            #print(roundformode)
+            #print(st.mode(roundformode))
+            modeaveenergyincluster.append(st.mode(roundformode))
             maxenergyincluster.append(max(clusterenergy))
-            print('CLUSTER ENERGY:',clusterenergy)
+            totalenergyincluster.append(sum(modeclusterenergy))
+            #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
-        if n>20:
-            print('HEREEEEEEEEEEEEE')
-            print(g)
-            print(x[g],y[g])
+        #if n>19 and n<21:
+            #print('HEREEEEEEEEEEEEE')
+            #print(roundformode)
+            #plt.plot(roundformode,'x-')
+            
+            #print(x[g],y[g])
         g=g+1
     meanavenergy = sum(avenergy)/len(avenergy)
     modeavenergy=st.mode(avenergy)
@@ -309,10 +329,10 @@ plt.ylabel('Mean Energy - KeV')
 ax.set_xlim([0,40])                                                            #cluster size and MEAN ave energy
 #ax.set_ylim([0,20])
 plt.savefig('{}_clustersizes_and_mean_energy.png'.format(particle1), bbox_inches='tight')
-plt.show()
+#plt.show()
 
 ####################
-
+print('mean energy of 6 pixel cluster :',(plotaveenergyincluster[5]))
 
 
 ####################
@@ -328,7 +348,7 @@ for a in range(1,100):
             
             intplotaveenergyincluster.append(modeaveenergyincluster[n])
     plotclustersize.append(a)
-    plotaveenergyincluster.append((np.mean(intplotaveenergyincluster))*(10**6))
+    plotaveenergyincluster.append((np.mean(intplotaveenergyincluster)))
 
 fig, ax=plt.subplots()   
 ax.plot(plotclustersize,plotaveenergyincluster,'x')
@@ -337,8 +357,10 @@ plt.ylabel('Mode Energy of Cluster - KeV')
 ax.set_xlim([0,40])                                                            #cluster size and MODE ave energy
 #ax.set_ylim([0,20])
 plt.savefig('{}_clustersizes_and_mode_energy.png'.format(particle1), bbox_inches='tight')
-plt.show()
+#plt.show()
 
+
+print('mode energy of 6 pixel cluster :',(plotaveenergyincluster[5]))
 ####################
 
 
@@ -364,10 +386,37 @@ plt.ylabel('Max Energy - KeV')
 ax.set_xlim([0,40])                                                            #cluster size and MAX energy
 #ax.set_ylim([0,20])
 plt.savefig('{}_clustersizes_and_max_energy.png'.format(particle1), bbox_inches='tight')
-plt.show()
+#plt.show()
 
+print('MAX ENERGY:',(plotmaxenergyincluster[5]) )
 ####################
 
+####################
+plotclustersize=[]
+plotaveenergyincluster=[]
+intplotmaxenergyincluster=[]
+plottotenergyincluster=[]
+
+for a in range(1,100):
+    intplottotenergyincluster=[]
+    for n in range(0,len(listofclustersize)):
+        if a==listofclustersize[n]:
+            
+            intplottotenergyincluster.append(totalenergyincluster[n])
+    plotclustersize.append(a)
+    plottotenergyincluster.append((np.mean(intplottotenergyincluster)))
+
+fig, ax=plt.subplots()   
+ax.plot(plotclustersize,plottotenergyincluster,'x')
+plt.xlabel("Size of Cluster - pixels")
+plt.ylabel('Total Energy - KeV')
+ax.set_xlim([0,40])                                                            #cluster size and TOTAL energy
+#ax.set_ylim([0,20])
+plt.savefig('{}_clustersizes_and_total_energy.png'.format(particle1), bbox_inches='tight')
+#plt.show()
+
+print('TOTAL ENERGY:',(plottotenergyincluster) )
+####################
 
 
 
@@ -378,7 +427,7 @@ plt.ylabel('N')
 ax.set_xlim([0,40])                                                        #number of cluster sizes
 #ax.set_ylim([0,20])
 plt.savefig('{}_clustersizes.png'.format(particle1), bbox_inches='tight')
-plt.show()
+#plt.show()
 # Sample data
 side = np.linspace(-2,2,15)
 #print(side)
@@ -403,7 +452,7 @@ tick_locator = ticker.MaxNLocator(nbins=10)
 cb.locator = tick_locator
 cb.update_ticks()
 plt.savefig('{}_usrbin.png'.format(particle1), bbox_inches='tight')
-plt.show()
+#plt.show()
 
 plt.hist2d(x, y,(257,257), weights=z, norm=colors.LogNorm())
 
@@ -411,23 +460,38 @@ plt.colorbar()
 
 
 plt.savefig('{}_log_usrbin.png'.format(particle1), bbox_inches='tight')
-plt.show()
+#plt.show()
 n=0
 sum1 = 0
-print(z)
-print(len(z))
+#print(z)
+#print(len(z))
 while n < len(z):
     if -1 <= y[n] <=1:
         sum1=sum1+z[n]
     n=n+1
-print(total)
+#print(total)
 
 
 
 
 g=100                       ############################################################          
-print(g)
-print(x[g],y[g],z[g])
+#print(g)
+#print(x[g],y[g],z[g])
 g=g+257                     #proving that you need to do +257 for pixel above current pixel           
-print(g)
-print(x[g],y[g],z[g])       ############################################################   
+#print(g)
+#print(x[g],y[g],z[g])       ############################################################ 
+# 
+
+weights=[]
+
+for i in range(0,len(totalenergyincluster)):
+
+    weights.append(1/len(totalenergyincluster))  
+fig, ax=plt.subplots()
+ax = plt.gca()
+#ax.set_xlim([0,15])
+plt.xlabel("Total Energy in Cluster - GeV")
+plt.ylabel('Probability')
+ax.hist(totalenergyincluster, bins=20, weights=weights)
+plt.savefig('total_energy_in_cluster_hist.png',bbox_inches='tight', dpi=1000)
+plt.show()
