@@ -1041,16 +1041,22 @@ if do=="yes":
     print("min energy deposited of {}: {}".format(particle1,minavenergy))
 
 
+
+
+
+
 weights=[]
 
 for i in range(0,len(totalenergyincluster)):
 
     weights.append(1/len(totalenergyincluster))  
+binwidth=50
 fig, ax=plt.subplots()
 ax = plt.gca()
 ax.set_xlim([0,2000])
 plt.xlabel("Total Energy in Cluster - KeV")
 plt.ylabel('Probability')
-ax.hist(totalenergyincluster, bins=int(np.sqrt(len(totalenergyincluster))), weights=weights)
+#ax.hist(totalenergyincluster, bins=150, weights=weights)
+ax.hist(totalenergyincluster, bins=range(int(min(totalenergyincluster)), int(max(totalenergyincluster) + binwidth), binwidth),weights=weights)
 plt.savefig('total_energy_in_cluster_hist.png',bbox_inches='tight', dpi=1000)
 plt.show()
