@@ -501,10 +501,10 @@ weights=[]
 for i in range(0,len(totalenergyincluster)):
 
     weights.append(1/len(totalenergyincluster))  
-binwidth=50
+binwidth=10
 fig, ax=plt.subplots()
 ax = plt.gca()
-ax.set_xlim([0,2000])
+#ax.set_xlim([0,2000])
 plt.xlabel("Total Energy in Cluster - KeV")
 plt.ylabel('Probability')
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
