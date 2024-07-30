@@ -11,7 +11,7 @@ import statistics as st
 
 plt.ioff()
 
-particle1 ="muon"
+particle1 ="elec"
 f=0
 g=0
 q=[]
@@ -120,7 +120,7 @@ meanaveenergyincluster=[]
 modeaveenergyincluster=[]
 maxenergyincluster=[]
 totalenergyincluster=[]
-
+coeffvariation=[]
 
 primaries=18131863354
 if particle1=='muon':
@@ -270,7 +270,11 @@ if do=="yes":
             #print(st.mode(roundformode))
             modeaveenergyincluster.append(st.mode(roundformode))
             maxenergyincluster.append(max(clusterenergy))
-            totalenergyincluster.append(sum(modeclusterenergy)/n)
+            totalenergyincluster.append(sum(modeclusterenergy))
+            if n>1:
+                sigma=st.stdev(modeclusterenergy)
+                emean=np.mean(modeclusterenergy)
+                coeffvariation.append(sigma/emean)
             plotmodeaveenergy.append(st.mode(avenergy))
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
@@ -530,6 +534,30 @@ plt.ylabel('Probability')
 ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth), color='b')
 counts, bins, bars = ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth),weights=weights)
 plt.savefig('{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
+print(counts, bins, bars)
+
+
+print(len(plotmodeaveenergy))
+print(len(listofclustersize))
+
+
+######
+weights=[]
+
+'''for i in range(0,len(coeffvariation)):
+
+    weights.append(1/len(coeffvariation))  '''
+binwidth=10
+fig, ax=plt.subplots()
+ax = plt.gca()
+#ax.set_xlim([0,120])
+plt.xlabel("Coefficient of Variation")
+plt.ylabel('N')
+
+#ax.hist(totalenergyincluster, bins=150, weights=weights)
+ax.hist(coeffvariation)#, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
+#counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth),weights=weights)
+plt.savefig('{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 print(counts, bins, bars)
 plt.show()
 
