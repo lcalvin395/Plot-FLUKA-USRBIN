@@ -119,6 +119,7 @@ meanaveenergyincluster=[]
 modeaveenergyincluster=[]
 maxenergyincluster=[]
 totalenergyincluster=[]
+coeffvariation=[]
 
 
 primaries=18131863354
@@ -269,6 +270,10 @@ if do=="yes":
             modeaveenergyincluster.append(st.mode(roundformode))
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
+            if n>1:
+                sigma=st.stdev(modeclusterenergy)
+                emean=np.mean(modeclusterenergy)
+                coeffvariation.append(sigma/emean)
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
         #if n>19 and n<21:
@@ -742,6 +747,10 @@ if do=="yes":
             modeaveenergyincluster.append(st.mode(roundformode))
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
+            if n>1:
+                sigma=st.stdev(modeclusterenergy)
+                emean=np.mean(modeclusterenergy)
+                coeffvariation.append(sigma/emean)
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
         #if n>19 and n<21:
@@ -1022,6 +1031,10 @@ if do=="yes":
             modeaveenergyincluster.append(st.mode(roundformode))
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
+            if n>1:
+                sigma=st.stdev(modeclusterenergy)
+                emean=np.mean(modeclusterenergy)
+                coeffvariation.append(sigma/emean)
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
         #if n>19 and n<21:
