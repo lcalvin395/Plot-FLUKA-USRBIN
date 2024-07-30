@@ -21,8 +21,8 @@ total=0
 if particle1=='muon':
     # opening and creating new .txt file 
     with open( 
-        "muon_production_42_plot.dat", 'r') as r, open( 
-            'muon_production_42_plot2.txt', 'w') as o: 
+        "/Users/lukecalvin/2023/eli_np_muon_primaries_0.7GeV/muon_production_42_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_muon_primaries_0.7GeV/muon_production_42_plot2.txt', 'w') as o: 
         
         for line in r: 
             #strip() function 
@@ -31,8 +31,8 @@ if particle1=='muon':
                                                                             #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
     # opening and creating new .txt file 
     with open( 
-        "muon_production_39_plot.dat", 'r') as r, open( 
-            'muon_production_39_plot2.txt', 'w') as o: 
+        "/Users/lukecalvin/2023/eli_np_muon_primaries_0.7GeV/muon_production_39_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_muon_primaries_0.7GeV/muon_production_39_plot2.txt', 'w') as o: 
         
         for line in r: 
             #strip() function 
@@ -42,7 +42,7 @@ if particle1=='muon':
 
 
 
-    y, x, z, err = np.loadtxt('muon_production_42_plot2.txt', unpack=True)
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_muon_primaries_0.7GeV/muon_production_42_plot2.txt', unpack=True)
     length = len(z)
 
     while g<len(z):
@@ -59,7 +59,7 @@ if particle1=='muon':
     g=0
 
     total=0
-    y, x, z, err = np.loadtxt('muon_production_39_plot2.txt', unpack=True)
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_muon_primaries_0.7GeV/muon_production_39_plot2.txt', unpack=True)
 
 
 if particle1=='elec':
