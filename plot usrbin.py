@@ -513,7 +513,7 @@ plt.xlabel("Total Energy in Cluster - KeV")
 plt.ylabel('Probability')
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
 ax.hist(totalenergyincluster, bins=range(int(min(totalenergyincluster)), int(max(totalenergyincluster) + binwidth), binwidth),weights=weights)
-plt.savefig('total_energy_in_cluster_hist.png',bbox_inches='tight', dpi=1000)
+plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/total_energy_in_cluster_hist.png',bbox_inches='tight', dpi=1000)
 
 
 
@@ -533,7 +533,7 @@ plt.ylabel('Probability')
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
 ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth), color='b')
 counts, bins, bars = ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth),weights=weights)
-plt.savefig('{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
+plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 print(counts, bins, bars)
 
 
@@ -557,7 +557,7 @@ plt.ylabel('N')
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
 ax.hist(coeffvariation)#, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
 #counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth),weights=weights)
-plt.savefig('{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
+plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 print(counts, bins, bars)
 plt.show()
 
