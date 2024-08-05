@@ -140,8 +140,8 @@ if do=="yes":
         '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)<0.0000001:
             
             z[g]=z[g]*0'''
-        if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
-            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1
+        '''if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
+            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
         if (g in q)==True:
             #print("muon pixel energy deposited:", z[g])
             avenergy.append(z[g])
@@ -174,7 +174,7 @@ if do=="yes":
                 clusterpixels.append(pixel)
                 n=n+1
                 clusterenergy.append(z[pixel])
-                modeclusterenergy.append(z[pixel]*(10**6))
+                modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
                     print(pixelist)
                     print('HERE FOR EACH PIXEL')
@@ -617,8 +617,8 @@ if do=="yes":
         '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)<0.0000001:
             
             z[g]=z[g]*0'''
-        if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
-            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1
+        '''if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
+            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
         if (g in q)==True:
             #print("muon pixel energy deposited:", z[g])
             avenergy.append(z[g])
@@ -651,7 +651,7 @@ if do=="yes":
                 clusterpixels.append(pixel)
                 n=n+1
                 clusterenergy.append(z[pixel])
-                modeclusterenergy.append(z[pixel]*(10**6))
+                modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
                     print(pixelist)
                     print('HERE FOR EACH PIXEL')
@@ -901,8 +901,8 @@ if do=="yes":
         '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)<0.0000001:
             
             z[g]=z[g]*0'''
-        if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
-            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1
+        '''if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
+            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
         if (g in q)==True:
             #print("muon pixel energy deposited:", z[g])
             avenergy.append(z[g])
@@ -935,7 +935,7 @@ if do=="yes":
                 clusterpixels.append(pixel)
                 n=n+1
                 clusterenergy.append(z[pixel])
-                modeclusterenergy.append(z[pixel]*(10**6))
+                modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
                     print(pixelist)
                     print('HERE FOR EACH PIXEL')
@@ -1080,7 +1080,7 @@ weights=[]
 '''for i in range(0,len(coeffvariation)):
 
     weights.append(1/len(coeffvariation))  '''
-binwidth=10
+binwidth=1
 fig, ax=plt.subplots()
 ax = plt.gca()
 #ax.set_xlim([0,120])
@@ -1089,8 +1089,9 @@ plt.ylabel('N')
 
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
 ax.hist(coeffvariation)#, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
-#counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth),weights=weights)
+#counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth))
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 #print(counts, bins, bars)
 plt.show()
+print(min(coeffvariation))
 
