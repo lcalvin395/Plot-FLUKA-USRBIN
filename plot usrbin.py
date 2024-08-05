@@ -732,7 +732,7 @@ ax.set_xlim([0,xlim])
 plt.xticks(np.arange(0, xlim, step=5))
                                                      #number of cluster sizes
 #ax.set_ylim([0,20])
-plt.savefig('{}_clustersizes.png'.format(particle1), bbox_inches='tight')
+plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_clustersizes.png'.format(particle1), bbox_inches='tight')
 #plt.show()
 # Sample data
 fig, ax=plt.subplots()
@@ -841,7 +841,7 @@ weights=[]
 binwidth=0.1
 fig, ax=plt.subplots()
 ax = plt.gca()
-#ax.set_xlim([0,2])
+ax.set_ylim([0,110])
 plt.xlabel("Coefficient of Variation")
 plt.ylabel('N')
 
