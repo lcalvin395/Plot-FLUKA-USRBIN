@@ -547,19 +547,19 @@ weights=[]
 '''for i in range(0,len(coeffvariation)):
 
     weights.append(1/len(coeffvariation))  '''
-binwidth=10
+binwidth=1
 fig, ax=plt.subplots()
 ax = plt.gca()
-#ax.set_xlim([0,120])
+#ax.set_xlim([0,10])
 plt.xlabel("Coefficient of Variation")
 plt.ylabel('N')
 
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
-ax.hist(coeffvariation)#, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
-#counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth),weights=weights)
+ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
+counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth))
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
-print(counts, bins, bars)
+
 plt.show()
 
-print(len(plotmodeaveenergy))
-print(len(listofclustersize))
+print(coeffvariation)
+#print(counts, bins, bars)
