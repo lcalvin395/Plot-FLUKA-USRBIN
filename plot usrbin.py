@@ -836,10 +836,10 @@ weights=[]
 '''for i in range(0,len(coeffvariation)):
 
     weights.append(1/len(coeffvariation))  '''
-binwidth=0.1
+binwidth=1
 fig, ax=plt.subplots()
 ax = plt.gca()
-ax.set_xlim([0,1])
+#ax.set_xlim([0,5])
 plt.xlabel("Coefficient of Variation")
 plt.ylabel('N')
 
@@ -850,5 +850,5 @@ plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variat
 
 plt.show()
 
-print(coeffvariation)
+print(min(coeffvariation))
 #print(counts, bins, bars)
