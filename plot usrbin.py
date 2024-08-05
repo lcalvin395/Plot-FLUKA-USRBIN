@@ -1088,7 +1088,7 @@ plt.xlabel("Coefficient of Variation")
 plt.ylabel('N')
 
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
-ax.hist(coeffvariation)#, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
+ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5), color='b')
 #counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth))
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 #print(counts, bins, bars)
