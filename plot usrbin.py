@@ -140,11 +140,11 @@ if do=="yes":
         '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)<0.0000001:
             
             z[g]=z[g]*0'''
-        if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
-            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1
+        '''if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
+            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
         if (g in q)==True:
             #print("muon pixel energy deposited:", z[g])
-            avenergy.append(z[g]*(10**6))
+            avenergy.append(z[g]*primaries*0.00546875*0.00546875*0.1*(10**6))
             
         if (g in q)==False:
             z[g]=z[g]*0
@@ -175,7 +175,7 @@ if do=="yes":
                 clusterpixels.append(pixel)
                 n=n+1
                 clusterenergy.append(z[pixel])
-                modeclusterenergy.append(z[pixel]*(10**6))
+                modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
                     print(pixelist)
                     print('HERE FOR EACH PIXEL')
@@ -285,14 +285,15 @@ if do=="yes":
             
             #print(x[g],y[g])
         g=g+1
-    meanavenergy = sum(avenergy)/len(avenergy)
-    modeavenergy=st.mode(avenergy)
-    maxavenergy=max(avenergy)
-    minavenergy=min(avenergy)
-    print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
-    print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
-    print("max energy deposited of {}: {}".format(particle1,maxavenergy))
-    print("min energy deposited of {}: {}".format(particle1,minavenergy))
+        avenergy=[]
+    #meanavenergy = sum(avenergy)/len(avenergy)
+    #modeavenergy=st.mode(avenergy)
+    #maxavenergy=max(avenergy)
+    #minavenergy=min(avenergy)
+    #print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
+    #print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
+    #print("max energy deposited of {}: {}".format(particle1,maxavenergy))
+    #print("min energy deposited of {}: {}".format(particle1,minavenergy))
 
 
 
@@ -426,11 +427,11 @@ if do=="yes":
         '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)<0.0000001:
             
             z[g]=z[g]*0'''
-        if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
-            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1
+        '''if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
+            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
         if (g in q)==True:
             #print("muon pixel energy deposited:", z[g])
-            avenergy.append(z[g]*(10**6))
+            avenergy.append(z[g]*primaries*0.00546875*0.00546875*0.1*(10**6))
             
         if (g in q)==False:
             z[g]=z[g]*0
@@ -461,7 +462,7 @@ if do=="yes":
                 clusterpixels.append(pixel)
                 n=n+1
                 clusterenergy.append(z[pixel])
-                modeclusterenergy.append(z[pixel]*(10**6))
+                modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
                     print(pixelist)
                     print('HERE FOR EACH PIXEL')
@@ -571,14 +572,15 @@ if do=="yes":
             
             #print(x[g],y[g])
         g=g+1
-    meanavenergy = sum(avenergy)/len(avenergy)
-    modeavenergy=st.mode(avenergy)
-    maxavenergy=max(avenergy)
-    minavenergy=min(avenergy)
-    print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
-    print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
-    print("max energy deposited of {}: {}".format(particle1,maxavenergy))
-    print("min energy deposited of {}: {}".format(particle1,minavenergy))
+        avenergy=[]
+    #meanavenergy = sum(avenergy)/len(avenergy)
+    #modeavenergy=st.mode(avenergy)
+    #maxavenergy=max(avenergy)
+    #minavenergy=min(avenergy)
+    #print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
+    #print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
+    #print("max energy deposited of {}: {}".format(particle1,maxavenergy))
+    #print("min energy deposited of {}: {}".format(particle1,minavenergy))
 
 
 
@@ -836,16 +838,17 @@ weights=[]
 '''for i in range(0,len(coeffvariation)):
 
     weights.append(1/len(coeffvariation))  '''
-binwidth=1
+binwidth=0.1
 fig, ax=plt.subplots()
 ax = plt.gca()
-#ax.set_xlim([0,5])
+#ax.set_xlim([0,2])
 plt.xlabel("Coefficient of Variation")
 plt.ylabel('N')
 
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
-ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
-counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth))
+#ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
+ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3,2.4,2.5), color='b')
+#counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth))
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 
 plt.show()
