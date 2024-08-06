@@ -1,10 +1,12 @@
 import pylab as plt
 import numpy as np
-
+from numpy import savetxt
 import matplotlib.cm as cm
 import matplotlib.colors as colors
 from matplotlib import ticker
 import statistics as st
+import pandas as pd
+
 
 
 #MATPLOTLIB INTERACTIVE MODE TURNED OFF (FOR PLOTS)#
@@ -145,7 +147,7 @@ if do=="yes":
             z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
         if (g in q)==True:
             #print("muon pixel energy deposited:", z[g])
-            avenergy.append(z[g])
+            avenergy.append(z[g]*primaries*0.00546875*0.00546875*0.1*(10**6))
         if (g in q)==False:
             z[g]=z[g]*0
 
@@ -271,12 +273,16 @@ if do=="yes":
             modeaveenergyincluster.append(st.mode(roundformode))
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
-            plotmodeaveenergy.append(st.mode(avenergy))
+            
             if n>1:
                 sigma=st.stdev(modeclusterenergy)
                 emean=np.mean(modeclusterenergy)
                 coeffvariation.append(sigma/emean)
             #print('CLUSTER ENERGY:',clusterenergy)
+            int1=((np.array(avenergy))/5)
+            int2=np.around(int1,0)
+            int3=list((int2)*5)
+            plotmodeaveenergy.append(st.mode(int3))
             listofclustersize.append(n)
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
@@ -285,14 +291,15 @@ if do=="yes":
             
             #print(x[g],y[g])
         g=g+1
-    meanavenergy = sum(avenergy)/len(avenergy)
+        avenergy=[]
+    '''meanavenergy = sum(avenergy)/len(avenergy)
     modeavenergy=st.mode(avenergy)
     maxavenergy=max(avenergy)
     minavenergy=min(avenergy)
     print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
     print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
     print("max energy deposited of {}: {}".format(particle1,maxavenergy))
-    print("min energy deposited of {}: {}".format(particle1,minavenergy))
+    print("min energy deposited of {}: {}".format(particle1,minavenergy))'''
 
 """
 while g<len(z):
@@ -623,7 +630,7 @@ if do=="yes":
             z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
         if (g in q)==True:
             #print("muon pixel energy deposited:", z[g])
-            avenergy.append(z[g])
+            avenergy.append(z[g]*primaries*0.00546875*0.00546875*0.1*(10**6))
         if (g in q)==False:
             z[g]=z[g]*0
 
@@ -755,6 +762,10 @@ if do=="yes":
                 coeffvariation.append(sigma/emean)
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
+            int1=((np.array(avenergy))/5)
+            int2=np.around(int1,0)
+            int3=list((int2)*5)
+            plotmodeaveenergy.append(st.mode(int3))
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -762,14 +773,15 @@ if do=="yes":
             
             #print(x[g],y[g])
         g=g+1
-    meanavenergy = sum(avenergy)/len(avenergy)
+        avenergy=[]
+    '''meanavenergy = sum(avenergy)/len(avenergy)
     modeavenergy=st.mode(avenergy)
     maxavenergy=max(avenergy)
     minavenergy=min(avenergy)
     print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
     print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
     print("max energy deposited of {}: {}".format(particle1,maxavenergy))
-    print("min energy deposited of {}: {}".format(particle1,minavenergy))
+    print("min energy deposited of {}: {}".format(particle1,minavenergy))'''
 
 
 
@@ -907,7 +919,7 @@ if do=="yes":
             z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
         if (g in q)==True:
             #print("muon pixel energy deposited:", z[g])
-            avenergy.append(z[g])
+            avenergy.append(z[g]*primaries*0.00546875*0.00546875*0.1*(10**6))
         if (g in q)==False:
             z[g]=z[g]*0
 
@@ -1039,6 +1051,10 @@ if do=="yes":
                 coeffvariation.append(sigma/emean)
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
+            int1=((np.array(avenergy))/5)
+            int2=np.around(int1,0)
+            int3=list((int2)*5)
+            plotmodeaveenergy.append(st.mode(int3))
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -1046,14 +1062,15 @@ if do=="yes":
             
             #print(x[g],y[g])
         g=g+1
-    meanavenergy = sum(avenergy)/len(avenergy)
+        avenergy=[]
+    '''meanavenergy = sum(avenergy)/len(avenergy)
     modeavenergy=st.mode(avenergy)
     maxavenergy=max(avenergy)
     minavenergy=min(avenergy)
     print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
     print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
     print("max energy deposited of {}: {}".format(particle1,maxavenergy))
-    print("min energy deposited of {}: {}".format(particle1,minavenergy))
+    print("min energy deposited of {}: {}".format(particle1,minavenergy))'''
 
 
 
@@ -1091,12 +1108,20 @@ plt.ylabel('N')
 
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
 ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5), color='b')
-#counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth))
+counts, bins, bars = ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5), color='b')
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 #print(counts, bins, bars)
 
+#coeffsave=np.column_stack((counts, bins))
+coeffsave=[[],[]]
+for q in range(0,len(counts)):
+    coeffsave[0].append(counts[q])
+    coeffsave[1].append(bins[q])
 
-
+print((coeffsave))
+with open( 
+    "/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muoncoeffsave.csv", 'w') as muoncoeffsave:
+    savetxt("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muoncoeffsave.csv", coeffsave, delimiter=',')
 
 
 weights=[]
@@ -1107,15 +1132,15 @@ for i in range(0,len(plotmodeaveenergy)):
 binwidth=10
 fig, ax=plt.subplots()
 ax = plt.gca()
-ax.set_xlim([0,120])
+ax.set_xlim([0,200])
 plt.xlabel("Mode Energy in Cluster - KeV")
 plt.ylabel('Probability')
 
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
-ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth), color='b')
+ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth), color='b',weights=weights)
 counts, bins, bars = ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth),weights=weights)
-plt.savefig('{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
+plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 print(counts, bins, bars)
 plt.show()
-print(min(coeffvariation))
+print(plotmodeaveenergy)
 
