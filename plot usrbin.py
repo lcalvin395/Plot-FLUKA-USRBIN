@@ -120,6 +120,7 @@ modeaveenergyincluster=[]
 maxenergyincluster=[]
 totalenergyincluster=[]
 coeffvariation=[]
+plotmodeaveenergy=[]
 
 
 primaries=18131863354
@@ -270,6 +271,7 @@ if do=="yes":
             modeaveenergyincluster.append(st.mode(roundformode))
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
+            plotmodeaveenergy.append(st.mode(avenergy))
             if n>1:
                 sigma=st.stdev(modeclusterenergy)
                 emean=np.mean(modeclusterenergy)
