@@ -1092,6 +1092,28 @@ ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,
 #counts, bins, bars = ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth))
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 #print(counts, bins, bars)
+
+
+
+
+
+weights=[]
+
+for i in range(0,len(plotmodeaveenergy)):
+
+    weights.append(1/len(plotmodeaveenergy))  
+binwidth=10
+fig, ax=plt.subplots()
+ax = plt.gca()
+ax.set_xlim([0,120])
+plt.xlabel("Mode Energy in Cluster - KeV")
+plt.ylabel('Probability')
+
+#ax.hist(totalenergyincluster, bins=150, weights=weights)
+ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth), color='b')
+counts, bins, bars = ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth),weights=weights)
+plt.savefig('{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
+print(counts, bins, bars)
 plt.show()
 print(min(coeffvariation))
 
