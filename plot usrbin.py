@@ -1146,5 +1146,5 @@ counts, bins, bars = ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveen
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 print(counts, bins, bars)
 plt.show()
-print(plotmodeaveenergy)
+
 
