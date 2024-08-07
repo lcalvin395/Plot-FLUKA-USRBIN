@@ -1118,9 +1118,9 @@ for q in range(0,len(counts)):
     coeffsave[0].append(counts[q])
     coeffsave[1].append(bins[q])
 
-with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muoncoeffsave.txt", "w") as txt_file:
+with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muoncoeffsave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
-        txt_file.write("%g , %g\n"%((coeffsave[1][q]),(coeffsave[0][q]))) # works with any number of elements in a line
+        txt_file.write("%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
 
 print((coeffsave))
 '''with open( 
