@@ -808,7 +808,7 @@ plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/total_energy_in
 
 
 
-print(plotmodeaveenergy)
+
 weights=[]
 
 for i in range(0,len(plotmodeaveenergy)):
