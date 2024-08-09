@@ -1145,6 +1145,28 @@ ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotm
 counts, bins, bars = ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth),weights=weights)
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 print(counts, bins, bars)
+
+
+weights=[]
+
+for i in range(0,len(listofclustersize)):
+
+    weights.append(1/len(listofclustersize))  
+fig, ax=plt.subplots()   
+binwidth=1
+plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1)
+plt.xlabel("Size of Cluster - pixels")
+plt.ylabel('N')
+xlim=40
+#ax.set_xlim([0,xlim])   
+#plt.xticks(np.arange(0, xlim, step=5))
+                                                     #number of cluster sizes
+#ax.set_ylim([0,20])
+plt.savefig('{}_clustersizes.png'.format(particle1), bbox_inches='tight')
+
+
+
+
 plt.show()
 
 
