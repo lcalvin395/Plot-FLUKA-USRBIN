@@ -1155,6 +1155,7 @@ for i in range(0,len(listofclustersize)):
 fig, ax=plt.subplots()   
 binwidth=1
 plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1)
+counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1)'\'
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('N')
 xlim=40
@@ -1173,7 +1174,7 @@ for q in range(0,len(counts)):
 print(tracksave)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
-        txt_file.write("%g\t%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
+        txt_file.write("%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
 
 
 
