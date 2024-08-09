@@ -1158,8 +1158,8 @@ plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(list
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('N')
 xlim=40
-#ax.set_xlim([0,xlim])   
-#plt.xticks(np.arange(0, xlim, step=5))
+ax.set_xlim([0,xlim])   
+plt.xticks(np.arange(0, xlim, step=5))
                                                      #number of cluster sizes
 #ax.set_ylim([0,20])
 plt.savefig('{}_clustersizes.png'.format(particle1), bbox_inches='tight')
