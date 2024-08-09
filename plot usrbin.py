@@ -743,7 +743,7 @@ for q in range(0,len(counts)):
 print(tracksave)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/electracksave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
-        txt_file.write("%g\t%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
+        txt_file.write("%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
 
 
 
@@ -877,7 +877,7 @@ for q in range(0,len(counts)):
 print(coeffsave)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/eleccoeffsave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
-        txt_file.write("%g\t%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
+        txt_file.write("%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
         
 
 plt.show()
