@@ -725,6 +725,7 @@ for i in range(0,len(listofclustersize)):
 fig, ax=plt.subplots()   
 binwidth=1
 plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1, weights=weights)
+counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1)
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('N')
 xlim=40
@@ -733,6 +734,19 @@ plt.xticks(np.arange(0, xlim, step=5))
                                                      #number of cluster sizes
 #ax.set_ylim([0,20])
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_clustersizes.png'.format(particle1), bbox_inches='tight')
+
+tracksave=[[],[]]
+for q in range(0,len(counts)):
+    tracksave[0].append(counts[q])
+    tracksave[1].append(bins[q])
+
+print(tracksave)
+with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/electracksave.csv", "w") as txt_file:
+    for q in range(0,len(counts)):
+        txt_file.write("%g\t%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
+
+
+
 #plt.show()
 # Sample data
 fig, ax=plt.subplots()
@@ -855,16 +869,15 @@ plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variat
 
 
 #print(counts, bins, bars)
-coeffsave=[[],[],[]]
+coeffsave=[[],[]]
 for q in range(0,len(counts)):
     coeffsave[0].append(counts[q])
     coeffsave[1].append(bins[q])
-    coeffsave[2].append(counts[q]/sum(counts))
 
 print(coeffsave)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/eleccoeffsave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
-        txt_file.write("%g\t%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]),float(coeffsave[2][q]))) # works with any number of elements in a line
+        txt_file.write("%g\t%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
         
 
 plt.show()
