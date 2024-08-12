@@ -2155,8 +2155,8 @@ counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofcluste
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('N')
 xlim=40
-#ax.set_xlim([0,xlim])   
-#plt.xticks(np.arange(0, xlim, step=5))
+ax.set_xlim([0,xlim])   
+plt.xticks(np.arange(0, xlim, step=5))
                                                      #number of cluster sizes
 #ax.set_ylim([0,20])
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_clustersizes.png'.format(particle1), bbox_inches='tight')
