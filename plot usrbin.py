@@ -1184,7 +1184,7 @@ if particle1=='muon':
             #strip() function 
             if line.strip(): 
                 o.write(line) 
-    
+
 
 
 
