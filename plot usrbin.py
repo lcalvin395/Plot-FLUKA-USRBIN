@@ -12,14 +12,14 @@ import pandas as pd
 #MATPLOTLIB INTERACTIVE MODE TURNED OFF (FOR PLOTS)#
 
 plt.ioff()
-
+jp=0
 particle1 ="muon"
 f=0
 g=0
 q=[]
 avenergy=[]
 total=0
-
+here=[]
 if particle1=='muon':
     # opening and creating new .txt file 
     with open( 
@@ -1049,6 +1049,10 @@ if do=="yes":
                 sigma=st.stdev(modeclusterenergy)
                 emean=np.mean(modeclusterenergy)
                 coeffvariation.append(sigma/emean)
+                if jp<1:
+                    here.append(modeclusterenergy)
+                    jp+1
+
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
             int1=((np.array(avenergy))/5)
@@ -1178,6 +1182,9 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv
 
 
 
+
+
+#print(here)
 plt.show()
 
 
