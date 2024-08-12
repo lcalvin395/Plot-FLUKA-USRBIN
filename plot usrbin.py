@@ -122,7 +122,7 @@ maxenergyincluster=[]
 totalenergyincluster=[]
 coeffvariation=[]
 
-primaries=2500000
+primaries=500000
 if particle1=='muon':
     primaries=250000
 
@@ -409,7 +409,7 @@ perc=0
 
 
 
-primaries=2500000
+primaries=500000
 if particle1=='muon':
     primaries=250000
 
@@ -693,7 +693,7 @@ perc=0
 
 
 
-primaries=2500000
+primaries=500000
 if particle1=='muon':
     primaries=250000
 
@@ -869,6 +869,1148 @@ if do=="yes":
 
 
 
+particle1 ="elec"
+f=0
+g=0
+q=[]
+avenergy=[]
+
+total=0
+
+if particle1=='muon':
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_42_plot.dat", 'r') as r, open( 
+            'muon_production_42_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_39_plot.dat", 'r') as r, open( 
+            'muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
+
+
+
+    y, x, z, err = np.loadtxt('muon_production_42_plot2.txt', unpack=True)
+    length = len(z)
+
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
+
+
+
+
+    particle ="energymuon"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('muon_production_39_plot2.txt', unpack=True)
+
+
+if particle1=='elec':
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli_np_elec_primaries_0.7GeV/muon_production_43_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_elec_primaries_0.7GeV/muon_production_43_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli_np_elec_primaries_0.7GeV/muon_production_39_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_elec_primaries_0.7GeV/muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
+
+
+
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.7GeV/muon_production_43_plot2.txt', unpack=True)
+    length = len(z)
+
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
+
+
+
+
+    particle ="energyelec"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.7GeV/muon_production_39_plot2.txt', unpack=True)
+
+
+
+length = len(z)
+
+print(len(z))
+percentdone=[0,10,20,30,40,50,60,70,80,90]
+checkedpixels=[]
+perc=0
+
+
+
+
+
+
+
+
+primaries=500000
+if particle1=='muon':
+    primaries=250000
+
+do='yes'
+
+#normalising the energy colourbar and setting limit
+if do=="yes":
+    while g<len(z):
+        if (round((g/len(z))*100))!=perc:
+            perc=(round((g/len(z))*100))
+            print(perc,'%')
+        '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)>0.1:
+            
+            z[g]=z[g]*0'''
+        '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)<0.0000001:
+            
+            z[g]=z[g]*0'''
+        '''if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
+            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
+        if (g in q)==True:
+            #print("muon pixel energy deposited:", z[g])
+            avenergy.append(z[g]*primaries*0.00546875*0.00546875*0.1*(10**6))
+            
+        if (g in q)==False:
+            z[g]=z[g]*0
+
+        #true=(g==q)
+        #print(true)
+        #print((x))
+        #print(g)   
+        n=0
+        
+        if z[g]>0 and ((g not in checkedpixels)):    #if pixel value is non zero and pixel hasnt been counted in a previous cluster
+            prevpixel=[]
+            pixel=g
+            pixelist=[g]
+            clusterpixels=[]
+            #print('pixellist',pixelist)
+            n=0
+            e=0
+            clusterenergy=[]
+            modeclusterenergy=[]
+            while len(pixelist)>0:
+                #print('here')
+                if ((pixelist[0] in prevpixel)==True):
+                    pixelist.remove(pixelist[0])
+                    continue
+                
+                pixel=pixelist[0]
+                clusterpixels.append(pixel)
+                n=n+1
+                clusterenergy.append(z[pixel])
+                modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
+                if g==10679:
+                    print(pixelist)
+                    print('HERE FOR EACH PIXEL')
+                    print(g)
+                    print(pixel,x[pixel],y[pixel])
+                #print('N:',n)
+                #print(pixelist)
+                #print(prevpixel)
+                #print(pixel)
+                #print(pixel)
+                check=0
+
+                try:
+                    if z[pixel+(257)]>0 and ((pixel+(257) in prevpixel)==False):
+                        check=1
+                        #print(check)
+                        pixelist.append(pixel+(257))
+                        print('+257')
+                except:
+                    print()
+                
+                try:
+                    if z[pixel+(256)]>0 and ((pixel+(256) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(256))
+                        print('+256')
+                except:
+                    print()
+                try:
+                    if z[pixel+(258)]>0 and ((pixel+(258) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(258))
+                        print('+258')
+                        print(z[pixel+(258)])
+                except:
+                    print()
+                try:
+                    if z[pixel-(257)]>0 and ((pixel-(257) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(257))
+                        print('-257')
+                except:
+                    print()
+                try:
+                    if z[pixel-(256)]>0 and ((pixel-(256) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(256))
+                        print('-256')
+                except:
+                    print()
+                try:
+                    if z[pixel-(258)]>0 and ((pixel-(258) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(258))
+                        print('-258')
+                except:
+                    print()
+                try:
+                    if z[pixel+1]>0 and ((pixel+(1) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(1))
+                        print('+1')
+                except:
+                    print()
+                try:
+                    if z[pixel-1]>0 and ((pixel-(1) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-1)
+                        print('-1')
+                except:
+                    print()
+                prevpixel.append(pixel)
+                checkedpixels.append(pixel)
+                pixelist.remove(pixel)
+            if check==0:
+                #print('N HERE:',n)
+                #print(n)
+                e=1       # CHECK IS ZERO so set e equal to 1 to indicate that for pixel g, all pixels in this cluster have been found. 
+                if n>20000:
+                    for k in range(0,len(clusterpixels)):
+                        z[clusterpixels[k]]=0
+        if n>0:
+            meanaveenergyincluster.append(np.mean(clusterenergy))
+            roundformode1=((np.array(modeclusterenergy))/5)
+            roundformode2=np.around(roundformode1,0)
+            roundformode=list((roundformode2)*5)
+            roundformode.sort()
+            roundformode=roundformode/max(roundformode)
+            #print('LOOK HERE:')
+            #print(modeclusterenergy)
+            #print(roundformode)
+            #print(st.mode(roundformode))
+            modeaveenergyincluster.append(st.mode(roundformode))
+            maxenergyincluster.append(max(clusterenergy))
+            totalenergyincluster.append(sum(modeclusterenergy))
+            if n>1:
+                sigma=st.stdev(modeclusterenergy)
+                emean=np.mean(modeclusterenergy)
+                coeffvariation.append(sigma/emean)
+            plotmodeaveenergy.append(st.mode(avenergy))
+            #print('CLUSTER ENERGY:',clusterenergy)
+            listofclustersize.append(n)
+        #if n>19 and n<21:
+            #print('HEREEEEEEEEEEEEE')
+            #print(roundformode)
+            #plt.plot(roundformode,'x-')
+            
+            #print(x[g],y[g])
+        g=g+1
+        avenergy=[]
+    #meanavenergy = sum(avenergy)/len(avenergy)
+    #modeavenergy=st.mode(avenergy)
+    #maxavenergy=max(avenergy)
+    #minavenergy=min(avenergy)
+    #print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
+    #print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
+    #print("max energy deposited of {}: {}".format(particle1,maxavenergy))
+    #print("min energy deposited of {}: {}".format(particle1,minavenergy))
+
+
+
+
+particle1 ="elec"
+f=0
+g=0
+q=[]
+avenergy=[]
+
+total=0
+
+if particle1=='muon':
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_42_plot.dat", 'r') as r, open( 
+            'muon_production_42_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_39_plot.dat", 'r') as r, open( 
+            'muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
+
+
+
+    y, x, z, err = np.loadtxt('muon_production_42_plot2.txt', unpack=True)
+    length = len(z)
+
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
+
+
+
+
+    particle ="energymuon"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('muon_production_39_plot2.txt', unpack=True)
+
+
+if particle1=='elec':
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy/muon_production_43_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy/muon_production_43_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy/muon_production_39_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy/muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
+
+
+
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy/muon_production_43_plot2.txt', unpack=True)
+    length = len(z)
+
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
+
+
+
+
+    particle ="energyelec"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy/muon_production_39_plot2.txt', unpack=True)
+
+
+
+length = len(z)
+
+print(len(z))
+percentdone=[0,10,20,30,40,50,60,70,80,90]
+checkedpixels=[]
+perc=0
+
+
+
+
+
+
+
+
+primaries=500000
+if particle1=='muon':
+    primaries=250000
+
+do='yes'
+
+#normalising the energy colourbar and setting limit
+if do=="yes":
+    while g<len(z):
+        if (round((g/len(z))*100))!=perc:
+            perc=(round((g/len(z))*100))
+            print(perc,'%')
+        '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)>0.1:
+            
+            z[g]=z[g]*0'''
+        '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)<0.0000001:
+            
+            z[g]=z[g]*0'''
+        '''if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
+            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
+        if (g in q)==True:
+            #print("muon pixel energy deposited:", z[g])
+            avenergy.append(z[g]*primaries*0.00546875*0.00546875*0.1*(10**6))
+            
+        if (g in q)==False:
+            z[g]=z[g]*0
+
+        #true=(g==q)
+        #print(true)
+        #print((x))
+        #print(g)   
+        n=0
+        
+        if z[g]>0 and ((g not in checkedpixels)):    #if pixel value is non zero and pixel hasnt been counted in a previous cluster
+            prevpixel=[]
+            pixel=g
+            pixelist=[g]
+            clusterpixels=[]
+            #print('pixellist',pixelist)
+            n=0
+            e=0
+            clusterenergy=[]
+            modeclusterenergy=[]
+            while len(pixelist)>0:
+                #print('here')
+                if ((pixelist[0] in prevpixel)==True):
+                    pixelist.remove(pixelist[0])
+                    continue
+                
+                pixel=pixelist[0]
+                clusterpixels.append(pixel)
+                n=n+1
+                clusterenergy.append(z[pixel])
+                modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
+                if g==10679:
+                    print(pixelist)
+                    print('HERE FOR EACH PIXEL')
+                    print(g)
+                    print(pixel,x[pixel],y[pixel])
+                #print('N:',n)
+                #print(pixelist)
+                #print(prevpixel)
+                #print(pixel)
+                #print(pixel)
+                check=0
+
+                try:
+                    if z[pixel+(257)]>0 and ((pixel+(257) in prevpixel)==False):
+                        check=1
+                        #print(check)
+                        pixelist.append(pixel+(257))
+                        print('+257')
+                except:
+                    print()
+                
+                try:
+                    if z[pixel+(256)]>0 and ((pixel+(256) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(256))
+                        print('+256')
+                except:
+                    print()
+                try:
+                    if z[pixel+(258)]>0 and ((pixel+(258) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(258))
+                        print('+258')
+                        print(z[pixel+(258)])
+                except:
+                    print()
+                try:
+                    if z[pixel-(257)]>0 and ((pixel-(257) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(257))
+                        print('-257')
+                except:
+                    print()
+                try:
+                    if z[pixel-(256)]>0 and ((pixel-(256) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(256))
+                        print('-256')
+                except:
+                    print()
+                try:
+                    if z[pixel-(258)]>0 and ((pixel-(258) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(258))
+                        print('-258')
+                except:
+                    print()
+                try:
+                    if z[pixel+1]>0 and ((pixel+(1) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(1))
+                        print('+1')
+                except:
+                    print()
+                try:
+                    if z[pixel-1]>0 and ((pixel-(1) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-1)
+                        print('-1')
+                except:
+                    print()
+                prevpixel.append(pixel)
+                checkedpixels.append(pixel)
+                pixelist.remove(pixel)
+            if check==0:
+                #print('N HERE:',n)
+                #print(n)
+                e=1       # CHECK IS ZERO so set e equal to 1 to indicate that for pixel g, all pixels in this cluster have been found. 
+                if n>20000:
+                    for k in range(0,len(clusterpixels)):
+                        z[clusterpixels[k]]=0
+        if n>0:
+            meanaveenergyincluster.append(np.mean(clusterenergy))
+            roundformode1=((np.array(modeclusterenergy))/5)
+            roundformode2=np.around(roundformode1,0)
+            roundformode=list((roundformode2)*5)
+            roundformode.sort()
+            roundformode=roundformode/max(roundformode)
+            #print('LOOK HERE:')
+            #print(modeclusterenergy)
+            #print(roundformode)
+            #print(st.mode(roundformode))
+            modeaveenergyincluster.append(st.mode(roundformode))
+            maxenergyincluster.append(max(clusterenergy))
+            totalenergyincluster.append(sum(modeclusterenergy))
+            if n>1:
+                sigma=st.stdev(modeclusterenergy)
+                emean=np.mean(modeclusterenergy)
+                coeffvariation.append(sigma/emean)
+            plotmodeaveenergy.append(st.mode(avenergy))
+            #print('CLUSTER ENERGY:',clusterenergy)
+            listofclustersize.append(n)
+        #if n>19 and n<21:
+            #print('HEREEEEEEEEEEEEE')
+            #print(roundformode)
+            #plt.plot(roundformode,'x-')
+            
+            #print(x[g],y[g])
+        g=g+1
+        avenergy=[]
+    #meanavenergy = sum(avenergy)/len(avenergy)
+    #modeavenergy=st.mode(avenergy)
+    #maxavenergy=max(avenergy)
+    #minavenergy=min(avenergy)
+    #print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
+    #print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
+    #print("max energy deposited of {}: {}".format(particle1,maxavenergy))
+    #print("min energy deposited of {}: {}".format(particle1,minavenergy))
+
+
+particle1 ="elec"
+f=0
+g=0
+q=[]
+avenergy=[]
+
+total=0
+
+if particle1=='muon':
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_42_plot.dat", 'r') as r, open( 
+            'muon_production_42_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_39_plot.dat", 'r') as r, open( 
+            'muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
+
+
+
+    y, x, z, err = np.loadtxt('muon_production_42_plot2.txt', unpack=True)
+    length = len(z)
+
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
+
+
+
+
+    particle ="energymuon"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('muon_production_39_plot2.txt', unpack=True)
+
+
+if particle1=='elec':
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 2/muon_production_43_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 2/muon_production_43_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 2/muon_production_39_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 2/muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
+
+
+
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 2/muon_production_43_plot2.txt', unpack=True)
+    length = len(z)
+
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
+
+
+
+
+    particle ="energyelec"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 2/muon_production_39_plot2.txt', unpack=True)
+
+
+
+length = len(z)
+
+print(len(z))
+percentdone=[0,10,20,30,40,50,60,70,80,90]
+checkedpixels=[]
+perc=0
+
+
+
+
+
+
+
+
+primaries=500000
+if particle1=='muon':
+    primaries=250000
+
+do='yes'
+
+#normalising the energy colourbar and setting limit
+if do=="yes":
+    while g<len(z):
+        if (round((g/len(z))*100))!=perc:
+            perc=(round((g/len(z))*100))
+            print(perc,'%')
+        '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)>0.1:
+            
+            z[g]=z[g]*0'''
+        '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)<0.0000001:
+            
+            z[g]=z[g]*0'''
+        '''if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
+            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
+        if (g in q)==True:
+            #print("muon pixel energy deposited:", z[g])
+            avenergy.append(z[g]*primaries*0.00546875*0.00546875*0.1*(10**6))
+            
+        if (g in q)==False:
+            z[g]=z[g]*0
+
+        #true=(g==q)
+        #print(true)
+        #print((x))
+        #print(g)   
+        n=0
+        
+        if z[g]>0 and ((g not in checkedpixels)):    #if pixel value is non zero and pixel hasnt been counted in a previous cluster
+            prevpixel=[]
+            pixel=g
+            pixelist=[g]
+            clusterpixels=[]
+            #print('pixellist',pixelist)
+            n=0
+            e=0
+            clusterenergy=[]
+            modeclusterenergy=[]
+            while len(pixelist)>0:
+                #print('here')
+                if ((pixelist[0] in prevpixel)==True):
+                    pixelist.remove(pixelist[0])
+                    continue
+                
+                pixel=pixelist[0]
+                clusterpixels.append(pixel)
+                n=n+1
+                clusterenergy.append(z[pixel])
+                modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
+                if g==10679:
+                    print(pixelist)
+                    print('HERE FOR EACH PIXEL')
+                    print(g)
+                    print(pixel,x[pixel],y[pixel])
+                #print('N:',n)
+                #print(pixelist)
+                #print(prevpixel)
+                #print(pixel)
+                #print(pixel)
+                check=0
+
+                try:
+                    if z[pixel+(257)]>0 and ((pixel+(257) in prevpixel)==False):
+                        check=1
+                        #print(check)
+                        pixelist.append(pixel+(257))
+                        print('+257')
+                except:
+                    print()
+                
+                try:
+                    if z[pixel+(256)]>0 and ((pixel+(256) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(256))
+                        print('+256')
+                except:
+                    print()
+                try:
+                    if z[pixel+(258)]>0 and ((pixel+(258) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(258))
+                        print('+258')
+                        print(z[pixel+(258)])
+                except:
+                    print()
+                try:
+                    if z[pixel-(257)]>0 and ((pixel-(257) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(257))
+                        print('-257')
+                except:
+                    print()
+                try:
+                    if z[pixel-(256)]>0 and ((pixel-(256) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(256))
+                        print('-256')
+                except:
+                    print()
+                try:
+                    if z[pixel-(258)]>0 and ((pixel-(258) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(258))
+                        print('-258')
+                except:
+                    print()
+                try:
+                    if z[pixel+1]>0 and ((pixel+(1) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(1))
+                        print('+1')
+                except:
+                    print()
+                try:
+                    if z[pixel-1]>0 and ((pixel-(1) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-1)
+                        print('-1')
+                except:
+                    print()
+                prevpixel.append(pixel)
+                checkedpixels.append(pixel)
+                pixelist.remove(pixel)
+            if check==0:
+                #print('N HERE:',n)
+                #print(n)
+                e=1       # CHECK IS ZERO so set e equal to 1 to indicate that for pixel g, all pixels in this cluster have been found. 
+                if n>20000:
+                    for k in range(0,len(clusterpixels)):
+                        z[clusterpixels[k]]=0
+        if n>0:
+            meanaveenergyincluster.append(np.mean(clusterenergy))
+            roundformode1=((np.array(modeclusterenergy))/5)
+            roundformode2=np.around(roundformode1,0)
+            roundformode=list((roundformode2)*5)
+            roundformode.sort()
+            roundformode=roundformode/max(roundformode)
+            #print('LOOK HERE:')
+            #print(modeclusterenergy)
+            #print(roundformode)
+            #print(st.mode(roundformode))
+            modeaveenergyincluster.append(st.mode(roundformode))
+            maxenergyincluster.append(max(clusterenergy))
+            totalenergyincluster.append(sum(modeclusterenergy))
+            if n>1:
+                sigma=st.stdev(modeclusterenergy)
+                emean=np.mean(modeclusterenergy)
+                coeffvariation.append(sigma/emean)
+            plotmodeaveenergy.append(st.mode(avenergy))
+            #print('CLUSTER ENERGY:',clusterenergy)
+            listofclustersize.append(n)
+        #if n>19 and n<21:
+            #print('HEREEEEEEEEEEEEE')
+            #print(roundformode)
+            #plt.plot(roundformode,'x-')
+            
+            #print(x[g],y[g])
+        g=g+1
+        avenergy=[]
+    #meanavenergy = sum(avenergy)/len(avenergy)
+    #modeavenergy=st.mode(avenergy)
+    #maxavenergy=max(avenergy)
+    #minavenergy=min(avenergy)
+    #print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
+    #print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
+    #print("max energy deposited of {}: {}".format(particle1,maxavenergy))
+    #print("min energy deposited of {}: {}".format(particle1,minavenergy))
+
+particle1 ="elec"
+f=0
+g=0
+q=[]
+avenergy=[]
+
+total=0
+
+if particle1=='muon':
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_42_plot.dat", 'r') as r, open( 
+            'muon_production_42_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "muon_production_39_plot.dat", 'r') as r, open( 
+            'muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
+
+
+
+    y, x, z, err = np.loadtxt('muon_production_42_plot2.txt', unpack=True)
+    length = len(z)
+
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
+
+
+
+
+    particle ="energymuon"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('muon_production_39_plot2.txt', unpack=True)
+
+
+if particle1=='elec':
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 3/muon_production_43_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 3/muon_production_43_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line)                                                  #STRIPPING OUT THE BLANK LINES IN THE ORIGNAL AND CREATING A NEW ONE
+                                                                            #BLANK LINES WERE BEING READ AND ADDED AS DATA.....
+    # opening and creating new .txt file 
+    with open( 
+        "/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 3/muon_production_39_plot.dat", 'r') as r, open( 
+            '/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 3/muon_production_39_plot2.txt', 'w') as o: 
+        
+        for line in r: 
+            #strip() function 
+            if line.strip(): 
+                o.write(line) 
+    
+
+
+
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 3/muon_production_43_plot2.txt', unpack=True)
+    length = len(z)
+
+    while g<len(z):
+        if z[g]>0:
+            #print("pixel number:",g)
+            q.append(g)
+        g=g+1
+
+
+
+
+    particle ="energyelec"
+    f=0
+    g=0
+
+    total=0
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 3/muon_production_39_plot2.txt', unpack=True)
+
+
+
+length = len(z)
+
+print(len(z))
+percentdone=[0,10,20,30,40,50,60,70,80,90]
+checkedpixels=[]
+perc=0
+
+
+
+
+
+
+
+
+primaries=500000
+if particle1=='muon':
+    primaries=250000
+
+do='yes'
+
+#normalising the energy colourbar and setting limit
+if do=="yes":
+    while g<len(z):
+        if (round((g/len(z))*100))!=perc:
+            perc=(round((g/len(z))*100))
+            print(perc,'%')
+        '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)>0.1:
+            
+            z[g]=z[g]*0'''
+        '''if (z[g]*18431863354*0.00546875*0.00546875*0.1)<0.0000001:
+            
+            z[g]=z[g]*0'''
+        '''if (z[g]*primaries*0.00546875*0.00546875*0.1)>0:
+            z[g]=z[g]*primaries*0.00546875*0.00546875*0.1'''
+        if (g in q)==True:
+            #print("muon pixel energy deposited:", z[g])
+            avenergy.append(z[g]*primaries*0.00546875*0.00546875*0.1*(10**6))
+            
+        if (g in q)==False:
+            z[g]=z[g]*0
+
+        #true=(g==q)
+        #print(true)
+        #print((x))
+        #print(g)   
+        n=0
+        
+        if z[g]>0 and ((g not in checkedpixels)):    #if pixel value is non zero and pixel hasnt been counted in a previous cluster
+            prevpixel=[]
+            pixel=g
+            pixelist=[g]
+            clusterpixels=[]
+            #print('pixellist',pixelist)
+            n=0
+            e=0
+            clusterenergy=[]
+            modeclusterenergy=[]
+            while len(pixelist)>0:
+                #print('here')
+                if ((pixelist[0] in prevpixel)==True):
+                    pixelist.remove(pixelist[0])
+                    continue
+                
+                pixel=pixelist[0]
+                clusterpixels.append(pixel)
+                n=n+1
+                clusterenergy.append(z[pixel])
+                modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
+                if g==10679:
+                    print(pixelist)
+                    print('HERE FOR EACH PIXEL')
+                    print(g)
+                    print(pixel,x[pixel],y[pixel])
+                #print('N:',n)
+                #print(pixelist)
+                #print(prevpixel)
+                #print(pixel)
+                #print(pixel)
+                check=0
+
+                try:
+                    if z[pixel+(257)]>0 and ((pixel+(257) in prevpixel)==False):
+                        check=1
+                        #print(check)
+                        pixelist.append(pixel+(257))
+                        print('+257')
+                except:
+                    print()
+                
+                try:
+                    if z[pixel+(256)]>0 and ((pixel+(256) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(256))
+                        print('+256')
+                except:
+                    print()
+                try:
+                    if z[pixel+(258)]>0 and ((pixel+(258) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(258))
+                        print('+258')
+                        print(z[pixel+(258)])
+                except:
+                    print()
+                try:
+                    if z[pixel-(257)]>0 and ((pixel-(257) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(257))
+                        print('-257')
+                except:
+                    print()
+                try:
+                    if z[pixel-(256)]>0 and ((pixel-(256) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(256))
+                        print('-256')
+                except:
+                    print()
+                try:
+                    if z[pixel-(258)]>0 and ((pixel-(258) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-(258))
+                        print('-258')
+                except:
+                    print()
+                try:
+                    if z[pixel+1]>0 and ((pixel+(1) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel+(1))
+                        print('+1')
+                except:
+                    print()
+                try:
+                    if z[pixel-1]>0 and ((pixel-(1) in prevpixel)==False):
+                        check=1
+                        pixelist.append(pixel-1)
+                        print('-1')
+                except:
+                    print()
+                prevpixel.append(pixel)
+                checkedpixels.append(pixel)
+                pixelist.remove(pixel)
+            if check==0:
+                #print('N HERE:',n)
+                #print(n)
+                e=1       # CHECK IS ZERO so set e equal to 1 to indicate that for pixel g, all pixels in this cluster have been found. 
+                if n>20000:
+                    for k in range(0,len(clusterpixels)):
+                        z[clusterpixels[k]]=0
+        if n>0:
+            meanaveenergyincluster.append(np.mean(clusterenergy))
+            roundformode1=((np.array(modeclusterenergy))/5)
+            roundformode2=np.around(roundformode1,0)
+            roundformode=list((roundformode2)*5)
+            roundformode.sort()
+            roundformode=roundformode/max(roundformode)
+            #print('LOOK HERE:')
+            #print(modeclusterenergy)
+            #print(roundformode)
+            #print(st.mode(roundformode))
+            modeaveenergyincluster.append(st.mode(roundformode))
+            maxenergyincluster.append(max(clusterenergy))
+            totalenergyincluster.append(sum(modeclusterenergy))
+            if n>1:
+                sigma=st.stdev(modeclusterenergy)
+                emean=np.mean(modeclusterenergy)
+                coeffvariation.append(sigma/emean)
+            plotmodeaveenergy.append(st.mode(avenergy))
+            #print('CLUSTER ENERGY:',clusterenergy)
+            listofclustersize.append(n)
+        #if n>19 and n<21:
+            #print('HEREEEEEEEEEEEEE')
+            #print(roundformode)
+            #plt.plot(roundformode,'x-')
+            
+            #print(x[g],y[g])
+        g=g+1
+        avenergy=[]
+    #meanavenergy = sum(avenergy)/len(avenergy)
+    #modeavenergy=st.mode(avenergy)
+    #maxavenergy=max(avenergy)
+    #minavenergy=min(avenergy)
+    #print("mean energy deposited of {}: {}".format(particle1,meanavenergy))
+    #print("mode energy deposited of {}: {}".format(particle1,modeavenergy))
+    #print("max energy deposited of {}: {}".format(particle1,maxavenergy))
+    #print("min energy deposited of {}: {}".format(particle1,minavenergy))
+
+
+
 """
 while g<len(z):
     if z[g]>0:
@@ -1013,7 +2155,7 @@ counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofcluste
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('N')
 xlim=40
-ax.set_xlim([0,xlim])   
+#ax.set_xlim([0,xlim])   
 plt.xticks(np.arange(0, xlim, step=5))
                                                      #number of cluster sizes
 #ax.set_ylim([0,20])
