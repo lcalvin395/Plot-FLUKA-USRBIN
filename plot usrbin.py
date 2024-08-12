@@ -257,7 +257,7 @@ if do=="yes":
                 if n>20000:
                     for k in range(0,len(clusterpixels)):
                         z[clusterpixels[k]]=0
-        if n>0 and n<30:
+        if n>0:
             meanaveenergyincluster.append(np.mean(clusterenergy))
             roundformode1=((np.array(modeclusterenergy))/5)
             roundformode2=np.around(roundformode1,0)
@@ -544,7 +544,7 @@ if do=="yes":
                 if n>20000:
                     for k in range(0,len(clusterpixels)):
                         z[clusterpixels[k]]=0
-        if n>0 and n<30:
+        if n>0:
             meanaveenergyincluster.append(np.mean(clusterenergy))
             roundformode1=((np.array(modeclusterenergy))/5)
             roundformode2=np.around(roundformode1,0)
@@ -828,7 +828,7 @@ if do=="yes":
                 if n>20000:
                     for k in range(0,len(clusterpixels)):
                         z[clusterpixels[k]]=0
-        if n>0 and n<30:
+        if n>0:
             meanaveenergyincluster.append(np.mean(clusterenergy))
             roundformode1=((np.array(modeclusterenergy))/5)
             roundformode2=np.around(roundformode1,0)
