@@ -2154,7 +2154,7 @@ plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(list
 counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1)
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('N')
-xlim=40
+xlim=15
 ax.set_xlim([0,xlim])   
 plt.xticks(np.arange(0, xlim, step=5))
                                                      #number of cluster sizes
