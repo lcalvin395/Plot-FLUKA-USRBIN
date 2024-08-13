@@ -21,6 +21,7 @@ avenergy=[]
 total=0
 here=[]
 xy=[]
+xytf=[]
 if particle1=='muon':
     # opening and creating new .txt file 
     with open( 
@@ -1072,11 +1073,12 @@ if do=="yes":
                 for i in range(2, len(clusterxy)): 
                     xn, yn = clusterxy[i] 
                     if (x0 - x1) * (y1 - yn) != (x1 - xn) * (y0 - y1): 
-                        xytf=0 
+                        xytf.append(0)
+
                     else:
-                        xytf=1
-                print(xytf)
-                print('n: ',n)
+                        xytf.append(1)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
             int1=((np.array(avenergy))/5)
@@ -1215,6 +1217,7 @@ here3=np.around(here2,0)
 
 print(xy)
 
-#plt.show()
+ax.hist(xytf)
+plt.show()
 
 
