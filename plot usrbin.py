@@ -2278,7 +2278,7 @@ weights=[]
 for i in range(0,len(coeffvariation)):
 
     weights.append(1/len(coeffvariation))  
-binwidth=10
+binwidth=5
 fig, ax=plt.subplots()
 ax = plt.gca()
 ax.set_xlim([0,130])
