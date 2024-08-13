@@ -2254,7 +2254,7 @@ weights=[]
 for i in range(0,len(plotmodeaveenergy)):
 
     weights.append(1/len(plotmodeaveenergy))  
-binwidth=10
+binwidth=5
 fig, ax=plt.subplots()
 ax = plt.gca()
 ax.set_xlim([0,170])
