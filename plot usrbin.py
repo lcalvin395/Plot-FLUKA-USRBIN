@@ -952,6 +952,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                print(x[pixel])
                 clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
