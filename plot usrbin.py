@@ -1142,7 +1142,7 @@ for i in range(0,len(plotmodeaveenergy)):
 binwidth=10
 fig, ax=plt.subplots()
 ax = plt.gca()
-ax.set_xlim([0,150])
+ax.set_xlim([0,170])
 plt.xlabel("Mode Energy in Cluster - KeV")
 plt.ylabel('Probability')
 
