@@ -1177,7 +1177,7 @@ for q in range(0,len(counts)):
     tracksave[0].append(counts[q])
     tracksave[1].append(bins[q])
 
-print(tracksave)
+#print(tracksave)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
@@ -1186,7 +1186,7 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv
 
 
 
-#print(here)
-plt.show()
+print('HERE:',here)
+#plt.show()
 
 
