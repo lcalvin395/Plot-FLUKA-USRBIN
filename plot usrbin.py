@@ -1060,6 +1060,7 @@ if do=="yes":
                     here.append(modeclusterenergy)
                     xy.append(clusterxy)
                     print(clusterxy)
+                    print(n)
                     jp=jp+1
 
             #print('CLUSTER ENERGY:',clusterenergy)
