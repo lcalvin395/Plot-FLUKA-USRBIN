@@ -277,7 +277,7 @@ if do=="yes":
             if n>1:
                 sigma=st.stdev(modeclusterenergy)
                 emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma/emean)
+                coeffvariation.append(sigma)
             #print('CLUSTER ENERGY:',clusterenergy)
             int1=((np.array(avenergy))/5)
             int2=np.around(int1,0)
@@ -759,7 +759,7 @@ if do=="yes":
             if n>1:
                 sigma=st.stdev(modeclusterenergy)
                 emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma/emean)
+                coeffvariation.append(sigma)
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
             int1=((np.array(avenergy))/5)
@@ -1048,7 +1048,7 @@ if do=="yes":
             if n>1:
                 sigma=st.stdev(modeclusterenergy)
                 emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma/emean)
+                coeffvariation.append(sigma)
                 if jp<1:
                     here.append(modeclusterenergy)
                     jp+1
