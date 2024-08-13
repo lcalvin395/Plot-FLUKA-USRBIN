@@ -2281,7 +2281,7 @@ for i in range(0,len(coeffvariation)):
 binwidth=10
 fig, ax=plt.subplots()
 ax = plt.gca()
-#ax.set_ylim([0,110])
+ax.set_xlim([0,130])
 plt.xlabel("Standard Deviation - KeV")
 plt.ylabel('%N')
 
