@@ -1053,7 +1053,7 @@ if do=="yes":
                 coeffvariation.append(sigma)
                 if jp<1:
                     here.append(modeclusterenergy)
-                    jp+1
+                    jp=jp+1
 
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
