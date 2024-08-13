@@ -1217,6 +1217,8 @@ here3=np.around(here2,0)
 
 print(xy)
 
+fig, ax=plt.subplots()
+ax = plt.gca()
 ax.hist(xytf)
 plt.show()
 
