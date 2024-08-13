@@ -1062,7 +1062,15 @@ if do=="yes":
                     print(clusterxy)
                     print(n)
                     jp=jp+1
-
+                
+                (x0, y0), (x1, y1) = clusterxy[0], clusterxy[1] 
+                for i in range(2, len(clusterxy)): 
+                    x, y = clusterxy[i] 
+                    if (x0 - x1) * (y1 - y) != (x1 - x) * (y0 - y1): 
+                        xytf=0 
+                    else:
+                        xytf=1
+                print(xytf)
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
             int1=((np.array(avenergy))/5)
