@@ -1051,7 +1051,7 @@ if do=="yes":
                 sigma=st.stdev(modeclusterenergy)
                 emean=np.mean(modeclusterenergy)
                 coeffvariation.append(sigma)
-                if jp<10:
+                if jp<1:
                     here.append(modeclusterenergy)
                     jp=jp+1
 
