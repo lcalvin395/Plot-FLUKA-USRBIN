@@ -20,6 +20,7 @@ q=[]
 avenergy=[]
 total=0
 here=[]
+xy=[]
 if particle1=='muon':
     # opening and creating new .txt file 
     with open( 
@@ -167,6 +168,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -176,6 +178,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 '''if g==10679:
@@ -939,6 +942,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -948,6 +952,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if jp==0:
@@ -1053,6 +1058,7 @@ if do=="yes":
                 coeffvariation.append(sigma)
                 if jp<1:
                     here.append(modeclusterenergy)
+                    xy.append(clusterxy)
                     jp=jp+1
 
             #print('CLUSTER ENERGY:',clusterenergy)
@@ -1189,7 +1195,10 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv
 
 here2=np.array(here)
 here3=np.around(here2,0)
-print('HERE:',here3)
+#print('HERE:',here3)
+
+print(xy)
+
 #plt.show()
 
 
