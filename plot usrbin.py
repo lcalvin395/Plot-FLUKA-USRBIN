@@ -1106,7 +1106,7 @@ for i in range(0,len(coeffvariation)):
 binwidth=10
 fig, ax=plt.subplots()
 ax = plt.gca()
-#ax.set_xlim([0,120])
+ax.set_xlim([0,130])
 plt.xlabel("Coefficient of Variation")
 plt.ylabel('N')
 
