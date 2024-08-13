@@ -1066,7 +1066,7 @@ if do=="yes":
                 x0=clusterxy[0][0]
                 y0=clusterxy[0][1]
                 x1=clusterxy[1][0]
-                x2=clusterxy[1][1]
+                y1=clusterxy[1][1]
                 #(x0, y0), (x1, y1) = clusterxy[0], clusterxy[1] 
                 for i in range(2, len(clusterxy)): 
                     x, y = clusterxy[i] 
