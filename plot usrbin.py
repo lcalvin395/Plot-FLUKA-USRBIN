@@ -1076,6 +1076,7 @@ if do=="yes":
                     else:
                         xytf=1
                 print(xytf)
+                print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
             listofclustersize.append(n)
             int1=((np.array(avenergy))/5)
