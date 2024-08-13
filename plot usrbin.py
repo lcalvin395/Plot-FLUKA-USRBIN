@@ -1144,7 +1144,7 @@ fig, ax=plt.subplots()
 ax = plt.gca()
 ax.set_xlim([0,170])
 plt.xlabel("Mode Energy in Cluster - KeV")
-plt.ylabel('Probability')
+plt.ylabel('%N')
 
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
 ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth), color='b',weights=weights)
