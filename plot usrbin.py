@@ -1187,8 +1187,9 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv
 
 
 
-
-print('HERE:',np.around(np.array(here),0))
+here2=np.array(here)
+here3=np.around(here2,0)
+print('HERE:',here3)
 #plt.show()
 
 
