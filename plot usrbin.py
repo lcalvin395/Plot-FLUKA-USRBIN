@@ -178,11 +178,11 @@ if do=="yes":
                 n=n+1
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
-                if g==10679:
+                '''if g==10679:
                     print(pixelist)
                     print('HERE FOR EACH PIXEL')
                     print(g)
-                    print(pixel,x[pixel],y[pixel])
+                    print(pixel,x[pixel],y[pixel])'''
                 #print('N:',n)
                 #print(pixelist)
                 #print(prevpixel)
@@ -195,7 +195,7 @@ if do=="yes":
                         check=1
                         #print(check)
                         pixelist.append(pixel+(257))
-                        print('+257')
+                        #print('+257')
                 except:
                     print()
                 
@@ -203,50 +203,50 @@ if do=="yes":
                     if z[pixel+(256)]>0 and ((pixel+(256) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(256))
-                        print('+256')
+                        #print('+256')
                 except:
                     print()
                 try:
                     if z[pixel+(258)]>0 and ((pixel+(258) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(258))
-                        print('+258')
-                        print(z[pixel+(258)])
+                        #print('+258')
+                        #print(z[pixel+(258)])
                 except:
                     print()
                 try:
                     if z[pixel-(257)]>0 and ((pixel-(257) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(257))
-                        print('-257')
+                        #print('-257')
                 except:
                     print()
                 try:
                     if z[pixel-(256)]>0 and ((pixel-(256) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(256))
-                        print('-256')
+                        #print('-256')
                 except:
                     print()
                 try:
                     if z[pixel-(258)]>0 and ((pixel-(258) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(258))
-                        print('-258')
+                        #print('-258')
                 except:
                     print()
                 try:
                     if z[pixel+1]>0 and ((pixel+(1) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(1))
-                        print('+1')
+                        #print('+1')
                 except:
                     print()
                 try:
                     if z[pixel-1]>0 and ((pixel-(1) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-1)
-                        print('-1')
+                        #print('-1')
                 except:
                     print()
                 prevpixel.append(pixel)
@@ -661,11 +661,11 @@ if do=="yes":
                 n=n+1
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
-                if g==10679:
+                '''if g==10679:
                     print(pixelist)
                     print('HERE FOR EACH PIXEL')
                     print(g)
-                    print(pixel,x[pixel],y[pixel])
+                    print(pixel,x[pixel],y[pixel])'''
                 #print('N:',n)
                 #print(pixelist)
                 #print(prevpixel)
@@ -678,7 +678,7 @@ if do=="yes":
                         check=1
                         #print(check)
                         pixelist.append(pixel+(257))
-                        print('+257')
+                        #print('+257')
                 except:
                     print()
                 
@@ -686,50 +686,50 @@ if do=="yes":
                     if z[pixel+(256)]>0 and ((pixel+(256) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(256))
-                        print('+256')
+                        #print('+256')
                 except:
                     print()
                 try:
                     if z[pixel+(258)]>0 and ((pixel+(258) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(258))
-                        print('+258')
-                        print(z[pixel+(258)])
+                        #print('+258')
+                        #print(z[pixel+(258)])
                 except:
                     print()
                 try:
                     if z[pixel-(257)]>0 and ((pixel-(257) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(257))
-                        print('-257')
+                        #print('-257')
                 except:
                     print()
                 try:
                     if z[pixel-(256)]>0 and ((pixel-(256) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(256))
-                        print('-256')
+                        #print('-256')
                 except:
                     print()
                 try:
                     if z[pixel-(258)]>0 and ((pixel-(258) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(258))
-                        print('-258')
+                        #print('-258')
                 except:
                     print()
                 try:
                     if z[pixel+1]>0 and ((pixel+(1) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(1))
-                        print('+1')
+                        #print('+1')
                 except:
                     print()
                 try:
                     if z[pixel-1]>0 and ((pixel-(1) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-1)
-                        print('-1')
+                        #print('-1')
                 except:
                     print()
                 prevpixel.append(pixel)
@@ -950,11 +950,13 @@ if do=="yes":
                 n=n+1
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
-                if g==10679:
-                    print(pixelist)
-                    print('HERE FOR EACH PIXEL')
-                    print(g)
-                    print(pixel,x[pixel],y[pixel])
+                if jp==0:
+                    print('heeeeeeeeeere:',z[pixel])
+                #if g==10679:
+                    #print(pixelist)
+                    #print('HERE FOR EACH PIXEL')
+                    #print(g)
+                    #print(pixel,x[pixel],y[pixel])
                 #print('N:',n)
                 #print(pixelist)
                 #print(prevpixel)
@@ -967,7 +969,7 @@ if do=="yes":
                         check=1
                         #print(check)
                         pixelist.append(pixel+(257))
-                        print('+257')
+                        #print('+257')
                 except:
                     print()
                 
@@ -975,50 +977,50 @@ if do=="yes":
                     if z[pixel+(256)]>0 and ((pixel+(256) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(256))
-                        print('+256')
+                        #print('+256')
                 except:
                     print()
                 try:
                     if z[pixel+(258)]>0 and ((pixel+(258) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(258))
-                        print('+258')
-                        print(z[pixel+(258)])
+                        #print('+258')
+                        #print(z[pixel+(258)])
                 except:
                     print()
                 try:
                     if z[pixel-(257)]>0 and ((pixel-(257) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(257))
-                        print('-257')
+                        #print('-257')
                 except:
                     print()
                 try:
                     if z[pixel-(256)]>0 and ((pixel-(256) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(256))
-                        print('-256')
+                        #print('-256')
                 except:
                     print()
                 try:
                     if z[pixel-(258)]>0 and ((pixel-(258) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-(258))
-                        print('-258')
+                        #print('-258')
                 except:
                     print()
                 try:
                     if z[pixel+1]>0 and ((pixel+(1) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel+(1))
-                        print('+1')
+                        #print('+1')
                 except:
                     print()
                 try:
                     if z[pixel-1]>0 and ((pixel-(1) in prevpixel)==False):
                         check=1
                         pixelist.append(pixel-1)
-                        print('-1')
+                        #print('-1')
                 except:
                     print()
                 prevpixel.append(pixel)
@@ -1186,7 +1188,7 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv
 
 
 
-print('HERE:',here)
+print('HERE:',np.around(np.array(here),0))
 #plt.show()
 
 
