@@ -953,7 +953,7 @@ if do=="yes":
                 clusterpixels.append(pixel)
                 n=n+1
                 print(pixel)
-                print(x(pixel))
+                print(x[pixel])
                 clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
@@ -1071,8 +1071,8 @@ if do=="yes":
                 y1=clusterxy[1][1]
                 #(x0, y0), (x1, y1) = clusterxy[0], clusterxy[1] 
                 for i in range(2, len(clusterxy)): 
-                    x, y = clusterxy[i] 
-                    if (x0 - x1) * (y1 - y) != (x1 - x) * (y0 - y1): 
+                    xn, yn = clusterxy[i] 
+                    if (x0 - x1) * (y1 - yn) != (x1 - xn) * (y0 - y1): 
                         xytf=0 
                     else:
                         xytf=1
