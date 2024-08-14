@@ -9,8 +9,40 @@ import pandas as pd
 
 
 
-#MATPLOTLIB INTERACTIVE MODE TURNED OFF (FOR PLOTS)#
 
+class Solution: 
+    def solve(self, clusterxy): 
+      (x0, y0), (xlast, ylast) = clusterxy[0], clusterxy[len(clusterxy)-1] 
+      if float(ylast-y0)==0 or float(xlast-x0)==0:
+          return True
+      else:
+        mainslope=float(ylast-y0)/float(xlast-x0)
+        print(mainslope)
+        meanslope=[]
+        xmean=[]
+        ymean=[]
+        for i in range(1, len(clusterxy)):
+            x, y = clusterxy[i]
+            xprev, yprev= clusterxy[i-1]
+            xmean.append(abs(x-xprev))
+            ymean.append(abs(y-yprev))
+        xmean=sum(xmean)
+        ymean=sum(ymean)
+        if xmean==0 or ymean==0:
+            return True
+        if xmean!=0 and ymean!=0:
+            if ((float(ymean)/float(xmean)))!=mainslope:
+                return False
+            else:
+                return True
+        #print(xmean)
+        #print(ymean)
+        #print((float(ymean)/float(xmean)))
+        #print(mainslope)
+ob = Solution()
+
+
+#MATPLOTLIB INTERACTIVE MODE TURNED OFF (FOR PLOTS)#
 plt.ioff()
 jp=0
 particle1 ="muon"
@@ -899,7 +931,7 @@ meanaveenergyincluster=[]
 modeaveenergyincluster=[]
 maxenergyincluster=[]
 totalenergyincluster=[]
-
+count=0
 
 primaries=18131863354
 if particle1=='muon':
@@ -1065,18 +1097,9 @@ if do=="yes":
                     print(n)
                     jp=jp+1
                 
-                x0=clusterxy[0][0]
-                y0=clusterxy[0][1]
-                x1=clusterxy[1][0]
-                y1=clusterxy[1][1]
-                #(x0, y0), (x1, y1) = clusterxy[0], clusterxy[1] 
-                for i in range(2, len(clusterxy)): 
-                    xn, yn = clusterxy[i] 
-                    if (x0 - x1) * (y1 - yn) != (x1 - xn) * (y0 - y1): 
-                        xytf.append(0)
-
-                    else:
-                        xytf.append(1)
+                
+                print(ob.solve(clusterxy))
+                #print('n:',n)
                 #print(xytf)
                 #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
@@ -1217,9 +1240,7 @@ here3=np.around(here2,0)
 
 print(xy)
 
-fig, ax=plt.subplots()
-ax = plt.gca()
-ax.hist(xytf)
-plt.show()
+
+#plt.show()
 
 
