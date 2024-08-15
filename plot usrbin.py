@@ -6,39 +6,61 @@ import matplotlib.colors as colors
 from matplotlib import ticker
 import statistics as st
 import pandas as pd
+import math
+from scipy.optimize import curve_fit
 
 
-
+def f(x, A, B): # this is your 'straight line' y=f(x)
+    return A*x +B
 
 class Solution: 
-    def solve(self, clusterxy): 
-      (x0, y0), (xlast, ylast) = clusterxy[0], clusterxy[len(clusterxy)-1] 
-      if float(ylast-y0)==0 or float(xlast-x0)==0:
-          return True
-      else:
-        mainslope=float(ylast-y0)/float(xlast-x0)
-        print(mainslope)
-        meanslope=[]
-        xmean=[]
-        ymean=[]
-        for i in range(1, len(clusterxy)):
-            x, y = clusterxy[i]
-            xprev, yprev= clusterxy[i-1]
-            xmean.append(abs(x-xprev))
-            ymean.append(abs(y-yprev))
-        xmean=sum(xmean)
-        ymean=sum(ymean)
-        if xmean==0 or ymean==0:
-            return True
-        if xmean!=0 and ymean!=0:
-            if ((float(ymean)/float(xmean)))!=mainslope:
+   def solve(self, clusterxy): 
+        (x0, y0), (xlast, ylast) = clusterxy[0], clusterxy[len(clusterxy)-1] 
+        x=[]
+        y=[]
+        try:
+            mainslope=float(ylast-y0)/float(xlast-x0)
+            mainangle=math.atan(mainslope)*(180/math.pi)
+        except:
+            if ylast-y0==0:
+                mainslope=0
+                mainangle=0
+            if xlast-x0==0:
+                mainslope=float('inf')
+                mainangle=90
+        print(mainangle)
+        for i in range(0,len(clusterxy)):
+            x.append(clusterxy[i][0])
+            y.append(clusterxy[i][1])
+        print(x)
+        print(y)
+        popt, pcov = curve_fit(f, x, y)
+        
+        poptangle=math.atan(popt[0])*(180/math.pi)
+        print(poptangle)
+        #print(np.sqrt(np.diag(pcov)))
+        print('\n')
+        if mainslope==0:
+            i=int(len(y)/2)
+            if y[i]!=ylast:
+                return False
+                
+            if y[i]==ylast:
+                return True
+                    
+        if mainslope==float('inf'):
+            i=int(len(x)/2)
+            if x[i]!=xlast:
+                return False
+                
+            if x[i]==xlast:
+                return True
+        if (mainslope!=float('inf')) and (mainslope!=0):
+            #print(abs((popt[0]-mainslope)/mainslope))
+            if abs(mainangle-poptangle)>5:
                 return False
             else:
                 return True
-        #print(xmean)
-        #print(ymean)
-        #print((float(ymean)/float(xmean)))
-        #print(mainslope)
 ob = Solution()
 
 
@@ -1241,6 +1263,6 @@ here3=np.around(here2,0)
 print(xy)
 
 
-#plt.show()
+plt.show()
 
 
