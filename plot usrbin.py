@@ -78,6 +78,7 @@ straight=[]
 here=[]
 xy=[]
 xytf=[]
+jp=0
 
 
 if particle1=='muon':
