@@ -5,9 +5,12 @@ import matplotlib.cm as cm
 import matplotlib.colors as colors
 from matplotlib import ticker
 import statistics as st
+import math
+from scipy.optimize import curve_fit
 
 def myf(x, A, B): # this is your 'straight line' y=f(x)
     return A*x +B
+
 
 class Solution: 
    def solve(self, clusterxy): 
@@ -71,6 +74,9 @@ q=[]
 avenergy=[]
 plotmodeaveenergy=[]
 total=0
+straight=[]
+here=[]
+
 
 if particle1=='muon':
     # opening and creating new .txt file 
