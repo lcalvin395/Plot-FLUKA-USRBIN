@@ -10,7 +10,8 @@ import math
 from scipy.optimize import curve_fit
 
 
-def f(x, A, B): # this is your 'straight line' y=f(x)
+
+def myf(x, A, B): # this is your 'straight line' y=f(x)
     return A*x +B
 
 class Solution: 
@@ -34,7 +35,7 @@ class Solution:
             y.append(clusterxy[i][1])
         print(x)
         print(y)
-        popt, pcov = curve_fit(f, x, y)
+        popt, pcov = curve_fit(myf, x, y)
         
         poptangle=math.atan(popt[0])*(180/math.pi)
         print(poptangle)
@@ -57,7 +58,7 @@ class Solution:
                 return True
         if (mainslope!=float('inf')) and (mainslope!=0):
             #print(abs((popt[0]-mainslope)/mainslope))
-            if abs(mainangle-poptangle)>5:
+            if abs(mainangle-poptangle)>10:
                 return False
             else:
                 return True
@@ -76,6 +77,7 @@ total=0
 here=[]
 xy=[]
 xytf=[]
+straight=[]
 if particle1=='muon':
     # opening and creating new .txt file 
     with open( 
@@ -331,17 +333,39 @@ if do=="yes":
             modeaveenergyincluster.append(st.mode(roundformode))
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
-            
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
+                print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
+                #print('n:',n)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            int1=((np.array(avenergy))/5)
-            int2=np.around(int1,0)
-            int3=list((int2)*5)
-            plotmodeaveenergy.append(st.mode(int3))
-            listofclustersize.append(n)
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -516,22 +540,6 @@ z=z
 #plt.show()
 #, norm=colors.LogNorm()
 
-plt.hist2d(x, y,(257,257), weights=z)
-plt.xlabel("cm")
-plt.ylabel('cm')
-cb = plt.colorbar()
-tick_locator = ticker.MaxNLocator(nbins=10)
-cb.locator = tick_locator
-cb.update_ticks()
-plt.savefig('{}_usrbin.png'.format(particle1), bbox_inches='tight')
-#plt.show()
-
-plt.hist2d(x, y,(257,257), weights=z, norm=colors.LogNorm())
-
-plt.colorbar()
-
-
-plt.savefig('{}_log_usrbin.png'.format(particle1), bbox_inches='tight')
 #plt.show()
 n=0
 sum1 = 0
@@ -815,15 +823,38 @@ if do=="yes":
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
+                print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
+                #print('n:',n)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            listofclustersize.append(n)
-            int1=((np.array(avenergy))/5)
-            int2=np.around(int1,0)
-            int3=list((int2)*5)
-            plotmodeaveenergy.append(st.mode(int3))
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -1109,27 +1140,38 @@ if do=="yes":
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
-                if jp<1:
-                    here.append(modeclusterenergy)
-                    xy.append(clusterxy)
-                    print(clusterxy)
-                    print(n)
-                    jp=jp+1
-                
-                
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
                 print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
                 #print('n:',n)
                 #print(xytf)
                 #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            listofclustersize.append(n)
-            int1=((np.array(avenergy))/5)
-            int2=np.around(int1,0)
-            int3=list((int2)*5)
-            plotmodeaveenergy.append(st.mode(int3))
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -1261,6 +1303,21 @@ here3=np.around(here2,0)
 #print('HERE:',here3)
 
 print(xy)
+fig, ax=plt.subplots() 
+ax.hist(straight)
+
+'''fig, ax=plt.subplots()  
+plt.hist2d(x, y,(257,257), weights=z, norm=colors.LogNorm())
+plt.xlabel("cm")
+plt.ylabel('cm')
+cb = plt.colorbar()
+tick_locator = ticker.MaxNLocator(nbins=10)
+cb.locator = tick_locator
+cb.update_ticks()
+#plt.savefig('{}_usrbin.png'.format(particle1), bbox_inches='tight')
+#plt.show()
+plt.colorbar()
+plt.savefig('{}_log_usrbin.png'.format(particle1), bbox_inches='tight')'''
 
 
 plt.show()
