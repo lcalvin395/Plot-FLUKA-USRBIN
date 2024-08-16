@@ -56,7 +56,7 @@ class Solution:
                 return True
         if (mainslope!=float('inf')) and (mainslope!=0):
             #print(abs((popt[0]-mainslope)/mainslope))
-            if abs(mainangle-poptangle)>10:
+            if abs(mainangle-poptangle)>5:
                 return False
             else:
                 return True
