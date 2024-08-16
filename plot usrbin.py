@@ -2450,14 +2450,14 @@ z=z
 #plt.show()
 #, norm=colors.LogNorm()
 
-plt.hist2d(x, y,(257,257), weights=z)
+plt.hist2d(x, y,(257,257), weights=z,norm=colors.LogNorm())
 plt.xlabel("cm")
 plt.ylabel('cm')
 cb = plt.colorbar()
 tick_locator = ticker.MaxNLocator(nbins=10)
 cb.locator = tick_locator
 cb.update_ticks()
-plt.savefig('{}_usrbin.png'.format(particle1), bbox_inches='tight')
+#plt.savefig('{}_usrbin.png'.format(particle1), bbox_inches='tight')
 #plt.show()
 
 #plt.hist2d(x, y,(257,257), weights=z, norm=colors.LogNorm())
