@@ -76,6 +76,8 @@ plotmodeaveenergy=[]
 total=0
 straight=[]
 here=[]
+xy=[]
+xytf=[]
 
 
 if particle1=='muon':
@@ -2563,5 +2565,9 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/eleccoeffsave.csv
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
         
+
+
+fig, ax=plt.subplots() 
+ax.hist(straight)
 
 plt.show()
