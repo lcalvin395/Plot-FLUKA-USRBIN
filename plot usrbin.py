@@ -165,6 +165,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -174,6 +175,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
@@ -272,12 +274,38 @@ if do=="yes":
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
-            plotmodeaveenergy.append(st.mode(avenergy))
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
+                print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
+                #print('n:',n)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            listofclustersize.append(n)
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -452,6 +480,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -461,6 +490,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
@@ -559,12 +589,38 @@ if do=="yes":
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
-            plotmodeaveenergy.append(st.mode(avenergy))
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
+                print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
+                #print('n:',n)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            listofclustersize.append(n)
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -736,6 +792,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -745,6 +802,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
@@ -843,12 +901,38 @@ if do=="yes":
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
-            plotmodeaveenergy.append(st.mode(avenergy))
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
+                print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
+                #print('n:',n)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            listofclustersize.append(n)
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -1023,6 +1107,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -1032,6 +1117,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
@@ -1130,12 +1216,38 @@ if do=="yes":
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
-            plotmodeaveenergy.append(st.mode(avenergy))
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
+                print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
+                #print('n:',n)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            listofclustersize.append(n)
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -1310,6 +1422,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -1319,6 +1432,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
@@ -1417,12 +1531,38 @@ if do=="yes":
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
-            plotmodeaveenergy.append(st.mode(avenergy))
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
+                print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
+                #print('n:',n)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            listofclustersize.append(n)
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -1595,6 +1735,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -1604,6 +1745,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
@@ -1702,12 +1844,38 @@ if do=="yes":
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
-            plotmodeaveenergy.append(st.mode(avenergy))
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
+                print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
+                #print('n:',n)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            listofclustersize.append(n)
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
@@ -1879,6 +2047,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
                 if ((pixelist[0] in prevpixel)==True):
@@ -1888,6 +2057,7 @@ if do=="yes":
                 pixel=pixelist[0]
                 clusterpixels.append(pixel)
                 n=n+1
+                clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
                 if g==10679:
@@ -1986,12 +2156,38 @@ if do=="yes":
             maxenergyincluster.append(max(clusterenergy))
             totalenergyincluster.append(sum(modeclusterenergy))
             if n>1:
-                sigma=st.stdev(modeclusterenergy)
-                emean=np.mean(modeclusterenergy)
-                coeffvariation.append(sigma)
-            plotmodeaveenergy.append(st.mode(avenergy))
+                if ob.solve(clusterxy)==True:
+                    sigma=st.stdev(modeclusterenergy)
+                    emean=np.mean(modeclusterenergy)
+                    coeffvariation.append(sigma)
+                    listofclustersize.append(n)
+                    int1=((np.array(avenergy))/5)
+                    int2=np.around(int1,0)
+                    int3=list((int2)*5)
+                    plotmodeaveenergy.append(st.mode(int3))
+                    if jp<1:
+                        here.append(modeclusterenergy)
+                        xy.append(clusterxy)
+                        print(clusterxy)
+                        print(n)
+                        jp=jp+1
+                print(ob.solve(clusterxy))
+                if ob.solve(clusterxy)==False:
+                    straight.append(0)
+                if ob.solve(clusterxy)==True:
+                    straight.append(1)
+            if n==1:
+                listofclustersize.append(n)
+                int1=((np.array(avenergy))/5)
+                int2=np.around(int1,0)
+                int3=list((int2)*5)
+                plotmodeaveenergy.append(st.mode(int3))
+
+
+                #print('n:',n)
+                #print(xytf)
+                #print('n: ',n)
             #print('CLUSTER ENERGY:',clusterenergy)
-            listofclustersize.append(n)
         #if n>19 and n<21:
             #print('HEREEEEEEEEEEEEE')
             #print(roundformode)
