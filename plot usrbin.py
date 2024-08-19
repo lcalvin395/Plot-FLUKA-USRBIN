@@ -3922,7 +3922,7 @@ if particle1=='elec':
     g=0
 
     total=0
-    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 3/muon_production_39_plot2.txt', unpack=True)
+    y, x, z, err = np.loadtxt('/Users/lukecalvin/2023/eli_np_elec_primaries_0.1GeV copy 9/muon_production_39_plot2.txt', unpack=True)
 
 
 
@@ -4305,7 +4305,7 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/electracksave.csv
 
 #plt.show()
 # Sample data
-fig, ax=plt.subplots()
+'''fig, ax=plt.subplots()
 ax = plt.gca()
 side = np.linspace(-2,2,15)
 #print(side)
@@ -4328,7 +4328,7 @@ plt.ylabel('cm')
 cb = plt.colorbar()
 tick_locator = ticker.MaxNLocator(nbins=10)
 cb.locator = tick_locator
-cb.update_ticks()
+cb.update_ticks()'''
 #plt.savefig('{}_usrbin.png'.format(particle1), bbox_inches='tight')
 #plt.show()
 
