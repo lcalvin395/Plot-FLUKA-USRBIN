@@ -183,6 +183,7 @@ modeaveenergyincluster=[]
 maxenergyincluster=[]
 totalenergyincluster=[]
 coeffvariation=[]
+meanenergyincluster=[]
 
 primaries=500000
 if particle1=='muon':
@@ -345,6 +346,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -660,6 +662,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -972,6 +975,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -1287,6 +1291,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -1602,6 +1607,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -1915,6 +1921,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -2227,6 +2234,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -2539,6 +2547,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -2851,6 +2860,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -3164,6 +3174,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -3476,6 +3487,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -3789,6 +3801,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -4101,6 +4114,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -4413,6 +4427,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -4725,6 +4740,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -5037,6 +5053,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -5349,6 +5366,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -5663,6 +5681,7 @@ if do=="yes":
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
+                    meanenergyincluster.append(np.mean(modeclusterenergy))
                     if jp<1:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
@@ -6009,4 +6028,25 @@ ax.hist(straight)
 
 
 print('here:', here)
+
+
+
+weights=[]
+
+for i in range(0,len(meanenergyincluster)):
+
+    weights.append(1/len(meanenergyincluster)) 
+binwidth=5
+fig, ax=plt.subplots()   
+ax = plt.gca()
+ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth),binwidth),color='b',weights=weights)
+#counts, bins, bars = ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth)),color='b',weights=weights)
+plt.xlabel("Mean energy - KeV")
+plt.ylabel('%N')
+xlim=40
+#ax.set_xlim([0,xlim])   
+                                                     #number of cluster sizes
+#ax.set_ylim([0,20])
+plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_meanenergy.png'.format(particle1), bbox_inches='tight', dpi=1000)
+
 plt.show()
