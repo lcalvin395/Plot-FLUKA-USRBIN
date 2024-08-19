@@ -1338,8 +1338,8 @@ ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(m
 #counts, bins, bars = ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth)),color='b',weights=weights)
 plt.xlabel("Mean energy - KeV")
 plt.ylabel('%N')
-xlim=40
-#ax.set_xlim([0,xlim])   
+xlim=250
+ax.set_xlim([0,xlim])   
                                                      #number of cluster sizes
 #ax.set_ylim([0,20])
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_meanenergy.png'.format(particle1), bbox_inches='tight', dpi=1000)
