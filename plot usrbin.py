@@ -5657,6 +5657,8 @@ if do=="yes":
                     emean=np.mean(modeclusterenergy)
                     coeffvariation.append(sigma)
                     listofclustersize.append(n)
+                    if n>10:
+                        print(clusterxy)
                     int1=((np.array(avenergy))/5)
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
