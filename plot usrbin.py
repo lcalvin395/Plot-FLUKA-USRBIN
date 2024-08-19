@@ -1342,7 +1342,7 @@ xlim=40
 #ax.set_xlim([0,xlim])   
                                                      #number of cluster sizes
 #ax.set_ylim([0,20])
-plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_meanenergy.png'.format(particle1), bbox_inches='tight')
+plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_meanenergy.png'.format(particle1), bbox_inches='tight', dpi=1000)
 
 
 plt.show()
