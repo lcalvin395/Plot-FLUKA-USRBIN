@@ -4443,4 +4443,7 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/eleccoeffsave.csv
 fig, ax=plt.subplots() 
 ax.hist(straight)
 
+
+
+print('here:', here)
 plt.show()
