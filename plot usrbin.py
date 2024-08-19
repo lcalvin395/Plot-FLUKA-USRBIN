@@ -5658,7 +5658,7 @@ if do=="yes":
                     coeffvariation.append(sigma)
                     listofclustersize.append(n)
                     if n>10:
-                        print(clusterxy)
+                        print('CLUSTER ABOVE 10:', clusterxy)
                     int1=((np.array(avenergy))/5)
                     int2=np.around(int1,0)
                     int3=list((int2)*5)
@@ -5842,8 +5842,9 @@ for i in range(0,len(listofclustersize)):
     weights.append(1/len(listofclustersize))  
 fig, ax=plt.subplots()   
 binwidth=1
-plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), color='b', width=1,weights=weights)
 counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1)
+plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), color='b', width=1,weights=weights)
+
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('N')
 xlim=40
