@@ -9446,6 +9446,16 @@ ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotm
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 print(counts, bins, bars)
 
+modesave=[[],[]]
+for q in range(0,len(counts)):
+    modesave[0].append(counts[q])
+    modesave[1].append(bins[q])
+
+print(modesave)
+with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/elecmodesave.csv", "w") as txt_file:
+    for q in range(0,len(counts)):
+        txt_file.write("%g\t%g\n"%(float(modesave[1][q]),float(modesave[0][q]))) # works with any number of elements in a line
+
 
 print(len(plotmodeaveenergy))
 print(len(listofclustersize))
@@ -9515,5 +9525,15 @@ ax.set_xlim([0,xlim])
                                                      #number of cluster sizes
 #ax.set_ylim([0,20])
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_meanenergy.png'.format(particle1), bbox_inches='tight', dpi=1000)
+
+meansave=[[],[]]
+for q in range(0,len(counts)):
+    meansave[0].append(counts[q])
+    meansave[1].append(bins[q])
+
+print(meansave)
+with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/elecmeansave.csv", "w") as txt_file:
+    for q in range(0,len(counts)):
+        txt_file.write("%g\t%g\n"%(float(meansave[1][q]),float(meansave[0][q]))) # works with any number of elements in a line
 
 plt.show()
