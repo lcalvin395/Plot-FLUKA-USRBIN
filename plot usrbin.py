@@ -1857,7 +1857,7 @@ plt.ylabel('%N')
 #ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5), color='b')
 #counts, bins, bars = ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5), color='b')
 ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b',weights=weights)
-counts, bins, bars =ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b',weights=weights)
+counts, bins, bars =ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 #print(counts, bins, bars)
 
@@ -1891,9 +1891,20 @@ plt.ylabel('%N')
 
 #ax.hist(totalenergyincluster, bins=150, weights=weights)
 ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth), color='b',weights=weights)
-counts, bins, bars = ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth),weights=weights)
+counts, bins, bars = ax.hist(plotmodeaveenergy, bins=range(int(min(plotmodeaveenergy)), int(max(plotmodeaveenergy) + binwidth), binwidth), color='b')
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_mode_energy_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 print(counts, bins, bars)
+
+modesave=[[],[]]
+for q in range(0,len(counts)):
+    modesave[0].append(counts[q])
+    modesave[1].append(bins[q])
+
+#print(tracksave)
+with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muonmodesave.csv", "w") as txt_file:
+    for q in range(0,len(counts)):
+        txt_file.write("%g\t%g\n"%(float(modesave[1][q]),float(modesave[0][q]))) # works with any number of elements in a line
+
 
 
 weights=[]
@@ -1904,7 +1915,7 @@ for i in range(0,len(listofclustersize)):
 fig, ax=plt.subplots()   
 binwidth=1
 plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1,color='b',weights=weights)
-counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1,weights=weights)
+counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1)
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('%N')
 xlim=40
@@ -1962,7 +1973,7 @@ binwidth=5
 fig, ax=plt.subplots()   
 ax = plt.gca()
 ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth),binwidth),color='b',weights=weights)
-#counts, bins, bars = ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth)),color='b',weights=weights)
+counts, bins, bars = ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth)),color='b')
 plt.xlabel("Mean energy - KeV")
 plt.ylabel('%N')
 xlim=250
@@ -1970,6 +1981,17 @@ ax.set_xlim([0,xlim])
                                                      #number of cluster sizes
 #ax.set_ylim([0,20])
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_meanenergy.png'.format(particle1), bbox_inches='tight', dpi=1000)
+
+meansave=[[],[]]
+for q in range(0,len(counts)):
+    meansave[0].append(counts[q])
+    meansave[1].append(bins[q])
+
+#print(tracksave)
+with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muonmeansave.csv", "w") as txt_file:
+    for q in range(0,len(counts)):
+        txt_file.write("%g\t%g\n"%(float(meansave[1][q]),float(meansave[0][q]))) # works with any number of elements in a line
+
 
 
 plt.show()
