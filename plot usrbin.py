@@ -1915,7 +1915,7 @@ for i in range(0,len(listofclustersize)):
 fig, ax=plt.subplots()   
 binwidth=1
 plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1,color='b',weights=weights)
-counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1)
+counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), width=1,color='b',weights=weights)
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('%N')
 xlim=40
