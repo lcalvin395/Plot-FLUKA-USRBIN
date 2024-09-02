@@ -9502,7 +9502,7 @@ plt.ylabel('%N')
 #counts, bins, bars = ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5), color='b')
 #counts, bins, bars =ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
 ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b', weights=weights)
-counts, bins, bars =ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
+counts, bins, bars =ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b', weights=weights)
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 
 
@@ -9519,6 +9519,38 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/eleccoeffsave.csv
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
         
+#50MeV#
+prob50=0
+for i in range(0,len(counts)):
+    if bins[i]>=50:
+        prob50+=counts[i]
+print('Probs of electron of Std Dev >= 50KeV', prob50)
+
+#40MeV#
+prob40=0
+for i in range(0,len(counts)):
+    if bins[i]>=40:
+        prob40+=counts[i]
+print('Probs of electron of Std Dev >= 40KeV', prob40)
+#30MeV#
+prob30=0
+for i in range(0,len(counts)):
+    if bins[i]>=30:
+        prob30+=counts[i]
+print('Probs of electron of Std Dev >= 30KeV', prob30)
+#20MeV#
+prob20=0
+for i in range(0,len(counts)):
+    if bins[i]>=20:
+        prob20+=counts[i]
+print('Probs of electron of Std Dev >= 20KeV', prob20)
+#10MeV#
+prob10=0
+for i in range(0,len(counts)):
+    if bins[i]>=10:
+        prob10+=counts[i]
+print('Probs of electron of Std Dev >= 10KeV', prob10)
+
 
 
 fig, ax=plt.subplots() 
