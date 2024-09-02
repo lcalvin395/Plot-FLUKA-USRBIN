@@ -1901,8 +1901,6 @@ prob10=0
 for i in range(0,len(counts)):
     if bins[i]>=10:
         prob10+=counts[i]
-    if bins[i]==10:
-        print(counts[i])
 print('Probs of muon of Std Dev >= 10KeV', prob10)
 
 
