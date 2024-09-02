@@ -1937,6 +1937,27 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv
         txt_file.write("%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
 
 
+#15 pixels#
+prob15=0
+for i in range(0,len(counts)):
+    if bins[i]>=15:
+        prob15+=counts[i]
+print('Probs of muon of size >= 15 pixels', prob15)
+
+#10 pixels#
+prob10=0
+for i in range(0,len(counts)):
+    if bins[i]>=10:
+        prob10+=counts[i]
+print('Probs of muon of size >= 10 pixels', prob10)
+
+#5 pixels#
+prob5=0
+for i in range(0,len(counts)):
+    if bins[i]>=5:
+        prob5+=counts[i]
+print('Probs of muon of size >= 5 pixels', prob5)
+
 
 
 here2=np.array(here)
