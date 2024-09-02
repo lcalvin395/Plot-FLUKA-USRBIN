@@ -9539,7 +9539,7 @@ binwidth=5
 fig, ax=plt.subplots()   
 ax = plt.gca()
 ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth),binwidth),color='b',weights=weights)
-counts, bins, bars = ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth),binwidth),color='b')
+counts, bins, bars = ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth),binwidth),color='b',weights=weights)
 plt.xlabel("Mean energy - KeV")
 plt.ylabel('%N')
 xlim=250
