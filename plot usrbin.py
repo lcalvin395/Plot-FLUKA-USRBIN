@@ -1871,7 +1871,42 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muoncoeffsave.csv
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
 
-print((coeffsave))
+#50MeV#
+prob50=0
+for i in range(0,len(counts)):
+    if bins[i]>=50:
+        prob50+=counts[i]
+print('Probs of muon of Std Dev >= 50KeV', prob50)
+
+#40MeV#
+prob40=0
+for i in range(0,len(counts)):
+    if bins[i]>=40:
+        prob40+=counts[i]
+print('Probs of muon of Std Dev >= 40KeV', prob40)
+#30MeV#
+prob30=0
+for i in range(0,len(counts)):
+    if bins[i]>=30:
+        prob30+=counts[i]
+print('Probs of muon of Std Dev >= 30KeV', prob30)
+#20MeV#
+prob20=0
+for i in range(0,len(counts)):
+    if bins[i]>=20:
+        prob20+=counts[i]
+print('Probs of muon of Std Dev >= 20KeV', prob20)
+#10MeV#
+prob10=0
+for i in range(0,len(counts)):
+    if bins[i]>=10:
+        prob10+=counts[i]
+print('Probs of muon of Std Dev >= 10KeV', prob10)
+
+
+
+
+print((bins))
 '''with open( 
     "/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muoncoeffsave.csv", 'w') as muoncoeffsave:
     savetxt("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muoncoeffsave.csv", coeffsave, delimiter=',')'''
@@ -2019,32 +2054,32 @@ prob50=0
 for i in range(0,len(counts)):
     if bins[i]>=50:
         prob50+=counts[i]
-print('Probs of muon of energy >= 50MeV', prob50)
+print('Probs of muon of energy >= 50KeV', prob50)
 
 #40MeV#
 prob40=0
 for i in range(0,len(counts)):
     if bins[i]>=40:
         prob40+=counts[i]
-print('Probs of muon of energy >= 40MeV', prob40)
+print('Probs of muon of energy >= 40KeV', prob40)
 #30MeV#
 prob30=0
 for i in range(0,len(counts)):
     if bins[i]>=30:
         prob30+=counts[i]
-print('Probs of muon of energy >= 30MeV', prob30)
+print('Probs of muon of energy >= 30KeV', prob30)
 #20MeV#
 prob20=0
 for i in range(0,len(counts)):
     if bins[i]>=20:
         prob20+=counts[i]
-print('Probs of muon of energy >= 20MeV', prob20)
+print('Probs of muon of energy >= 20KeV', prob20)
 #10MeV#
 prob10=0
 for i in range(0,len(counts)):
     if bins[i]>=10:
         prob10+=counts[i]
-print('Probs of muon of energy >= 10MeV', prob10)
+print('Probs of muon of energy >= 10KeV', prob10)
 
 
 plt.show()
