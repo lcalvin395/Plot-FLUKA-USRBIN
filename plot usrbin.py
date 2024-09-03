@@ -9352,25 +9352,13 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/electracksave.csv
 
 
 #15 pixels#
-prob15=0
-for i in range(0,len(counts)):
-    if bins[i]>=15:
-        prob15+=counts[i]
-print('Probs of electron of size >= 15 pixels', prob15)
+prob=0
+for j in range(1,16,1):
+    for i in range(0,len(counts)):
+        if bins[i]>=j:
+            prob+=counts[i]
+    print('Probs of electron of size >= %g pixels'%(j), prob)
 
-#10 pixels#
-prob10=0
-for i in range(0,len(counts)):
-    if bins[i]>=10:
-        prob10+=counts[i]
-print('Probs of electron of size >= 10 pixels', prob10)
-
-#5 pixels#
-prob5=0
-for i in range(0,len(counts)):
-    if bins[i]>=5:
-        prob5+=counts[i]
-print('Probs of electron of size >= 5 pixels', prob5)
 
 
 
@@ -9520,36 +9508,12 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/eleccoeffsave.csv
         txt_file.write("%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
         
 #50MeV#
-prob50=0
-for i in range(0,len(counts)):
-    if bins[i]>=50:
-        prob50+=counts[i]
-print('Probs of electron of Std Dev >= 50KeV', prob50)
-
-#40MeV#
-prob40=0
-for i in range(0,len(counts)):
-    if bins[i]>=40:
-        prob40+=counts[i]
-print('Probs of electron of Std Dev >= 40KeV', prob40)
-#30MeV#
-prob30=0
-for i in range(0,len(counts)):
-    if bins[i]>=30:
-        prob30+=counts[i]
-print('Probs of electron of Std Dev >= 30KeV', prob30)
-#20MeV#
-prob20=0
-for i in range(0,len(counts)):
-    if bins[i]>=20:
-        prob20+=counts[i]
-print('Probs of electron of Std Dev >= 20KeV', prob20)
-#10MeV#
-prob10=0
-for i in range(0,len(counts)):
-    if bins[i]>=10:
-        prob10+=counts[i]
-print('Probs of electron of Std Dev >= 10KeV', prob10)
+prob=0
+for j in range(0,55,5):
+    for i in range(0,len(counts)):
+        if bins[i]>=j:
+            prob+=counts[i]
+    print('Probs of electron of Std Dev >= %gKeV'%(j), prob)
 
 
 
@@ -9594,36 +9558,14 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/elecmeansave.csv"
 
 
 #50MeV#
-prob50=0
-for i in range(0,len(counts)):
-    if bins[i]>=50:
-        prob50+=counts[i]
-print('Probs of electron of energy >= 50MeV', prob50)
+prob=0
+for j in range(0,55,5):
+    for i in range(0,len(counts)):
+        if bins[i]>=j:
+            prob+=counts[i]
+    print('Probs of electron of energy >= %gKeV'%(j), prob)
 
-#40MeV#
-prob40=0
-for i in range(0,len(counts)):
-    if bins[i]>=40:
-        prob40+=counts[i]
-print('Probs of electron of energy >= 40MeV', prob40)
-#30MeV#
-prob30=0
-for i in range(0,len(counts)):
-    if bins[i]>=30:
-        prob30+=counts[i]
-print('Probs of electron of energy >= 30MeV', prob30)
-#20MeV#
-prob20=0
-for i in range(0,len(counts)):
-    if bins[i]>=20:
-        prob20+=counts[i]
-print('Probs of electron of energy >= 20MeV', prob20)
-#10MeV#
-prob10=0
-for i in range(0,len(counts)):
-    if bins[i]>=10:
-        prob10+=counts[i]
-print('Probs of electron of energy >= 10MeV', prob10)
+
 
 
 plt.show()
