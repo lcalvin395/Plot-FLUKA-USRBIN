@@ -1879,7 +1879,7 @@ for j in range(0,55,5):
     for i in range(0,len(counts)):
         if bins[i]>=j:
             prob+=counts[i]
-    print('Probs of electron of Std Dev >= %gKeV'%(j), prob)
+    print('Probs of muon of Std Dev >= %gKeV'%(j), prob)
 
 
 
@@ -2020,7 +2020,7 @@ for j in range(0,55,5):
     for i in range(0,len(counts)):
         if bins[i]>=j:
             prob+=counts[i]
-    print('Probs of electron of energy >= %gKeV'%(j), prob)
+    print('Probs of muon of energy >= %gKeV'%(j), prob)
 
 
 
