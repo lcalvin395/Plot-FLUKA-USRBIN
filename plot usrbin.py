@@ -9352,8 +9352,9 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/electracksave.csv
 
 
 #15 pixels#
-prob=0
+
 for j in range(1,16,1):
+    prob=0
     for i in range(0,len(counts)):
         if bins[i]>=j:
             prob+=counts[i]
@@ -9508,8 +9509,9 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/eleccoeffsave.csv
         txt_file.write("%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
         
 #50MeV#
-prob=0
+
 for j in range(0,55,5):
+    prob=0
     for i in range(0,len(counts)):
         if bins[i]>=j:
             prob+=counts[i]
@@ -9558,8 +9560,9 @@ with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/elecmeansave.csv"
 
 
 #50MeV#
-prob=0
+
 for j in range(0,55,5):
+    prob=0
     for i in range(0,len(counts)):
         if bins[i]>=j:
             prob+=counts[i]
