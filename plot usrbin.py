@@ -8877,7 +8877,8 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+here=[[]]
+jp=0
 total=0
 
 if particle1=='muon':
@@ -9147,7 +9148,7 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    if jp<10:
                         here.append(modeclusterenergy)
                         xy.append(clusterxy)
                         print(clusterxy)
@@ -9570,5 +9571,6 @@ for j in range(0,55,5):
 
 
 
-
+print(len(listofclustersize))
+print(here)
 plt.show()
