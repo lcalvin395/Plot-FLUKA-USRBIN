@@ -2024,7 +2024,7 @@ for j in range(0,55,5):
 
 
 
-
+print(len(listofclustersize))
 plt.show()
 
 
