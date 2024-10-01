@@ -345,12 +345,9 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
-                        here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+
+                    here.append(modeclusterenergy)
+
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -835,12 +832,9 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
-                        here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+
+                    here.append(modeclusterenergy)
+
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -1152,12 +1146,9 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
-                        here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+
+                    here.append(modeclusterenergy)
+
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -1466,12 +1457,8 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
-                        here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                    here.append(modeclusterenergy)
+
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -1512,7 +1499,6 @@ f=0
 g=0
 q=[]
 avenergy=[]
-here=[]
 herepixel=[]
 total=0
 
@@ -1786,15 +1772,10 @@ if do=="yes":
 
 
 
-                    if jp<30:
-                        if jp>0:
 
-                            here.append(modeclusterenergy)
-                            herepixel.append(modeclusterenergypixel)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                    here.append(modeclusterenergy)
+                    herepixel.append(modeclusterenergypixel)
+
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -2068,15 +2049,30 @@ for i in range(0,len(here)):
 
 
 
-for i in range(0,len(here)):
-    fig, ax=plt.subplots()
-    ax = plt.gca()  
+fig, ax=plt.subplots()
+ax = plt.gca()  
+plt.ylim(0,1.2)
+plt.xlim(0,10)
+print(len(here))
+for i in range(0,10):
+
     #ax.plot(here[i],'o')
-    ax.plot(here[i],'o',c='C%g'%(i),label='%g'%(i+1))
+    ax.plot(here[i],'o-',c='C%g'%(i),label='%g'%(i+1))
     ax.plot(slope[i]*tim+b1full[i],ls='dotted',c='C%g'%(i),lw=2,label='%g slope=%1.3f'%(i+1,slope[i]))
     plt.legend()
-plt.show()
+
 print(here)
 print(herepixel)
+diffs=[]
+diff=[]
+for i in range(0,len(here)):
 
 
+    for j in range(0,len(here[i])-1):
+        diff.append(abs(here[i][j+1]-here[i][j]))
+    meandiff=np.mean(diff)
+    diffs.append(meandiff)
+meandiffs=np.mean(diffs)
+
+print('meandiffs:', meandiffs)
+plt.show()
