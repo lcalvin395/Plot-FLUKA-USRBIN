@@ -76,6 +76,7 @@ plotmodeaveenergy=[]
 total=0
 straight=[]
 here=[]
+herepixel=[]
 xy=[]
 xytf=[]
 jp=0
@@ -228,6 +229,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            modeclusterenergypixel=[]
             clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
@@ -347,12 +349,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -395,7 +399,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -663,12 +667,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -708,7 +714,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -976,12 +982,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -1024,7 +1032,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -1292,12 +1300,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -1340,7 +1350,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -1608,12 +1618,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -1654,7 +1666,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -1922,12 +1934,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -1967,7 +1981,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -2235,12 +2249,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -2280,7 +2296,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -2548,12 +2564,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -2593,7 +2611,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -2861,12 +2879,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -2907,7 +2927,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -3175,12 +3195,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -3220,7 +3242,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -3488,12 +3510,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -3534,7 +3558,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -3802,12 +3826,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -3847,7 +3873,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -4115,12 +4141,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -4160,7 +4188,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -4428,12 +4456,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -4473,7 +4503,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -4741,12 +4771,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -4786,7 +4818,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -5054,12 +5086,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -5099,7 +5133,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -5367,12 +5401,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -5412,7 +5448,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -5682,12 +5718,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -5727,7 +5765,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -5997,12 +6035,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -6042,7 +6082,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -6312,12 +6352,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -6357,7 +6399,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -6627,12 +6669,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -6672,7 +6716,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -6942,12 +6986,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -6987,7 +7033,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -7257,12 +7303,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -7302,7 +7350,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -7572,12 +7620,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -7617,7 +7667,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -7887,12 +7937,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -7932,7 +7984,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -8202,12 +8254,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -8247,7 +8301,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -8517,12 +8571,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -8562,7 +8618,7 @@ f=0
 g=0
 q=[]
 avenergy=[]
-
+jp=0
 total=0
 
 if particle1=='muon':
@@ -8832,12 +8888,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
                         here.append(modeclusterenergy)
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+                        herepixel.append(modeclusterenergypixel)   
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -8877,7 +8935,6 @@ f=0
 g=0
 q=[]
 avenergy=[]
-here=[]
 herepixel=[]
 jp=0
 total=0
@@ -9152,18 +9209,17 @@ if do=="yes":
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
                     checksss=0
-                    if jp<30:
-                        if jp>0:
-                            for i in range(0,len(modeclusterenergy)-1):
-                                if modeclusterenergy[i]==modeclusterenergy[i+1]:
-                                    checksss=1
-                            #if checksss==0:
-                            here.append(modeclusterenergy)
-                            herepixel.append(modeclusterenergypixel)   
-                        xy.append(clusterxy)
-                        print(clusterxy)
-                        print(n)
-                        jp=jp+1
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
+                        here.append(modeclusterenergy)
+                        herepixel.append(modeclusterenergypixel)   
+                    xy.append(clusterxy)
+                    print(clusterxy)
+                    print(n)
+                    jp=jp+1
                 print(ob.solve(clusterxy))
                 if ob.solve(clusterxy)==False:
                     straight.append(0)
@@ -9592,9 +9648,9 @@ b1full=[]
 for i in range(0,len(here)):
     maxx=max(here[i])
 
-    #for j in range(0,len(here[i])):
+    for j in range(0,len(here[i])):
         
-    #    here[i][j]=here[i][j]/maxx
+        here[i][j]=here[i][j]/maxx
     #formean=here[i][:]
     #formean.remove(1.0)
     tim = np.arange(0,len(here[i]))
@@ -9614,14 +9670,38 @@ for i in range(0,len(here)):
         print(i+1)
 
 
+fig, ax=plt.subplots()
+ax = plt.gca()  
+plt.ylim(0,1.2)
+plt.xlim(0,10)
+print(len(here))
+for i in range(0,10):
 
-for i in range(0,len(here)):
-    fig, ax=plt.subplots()
-    ax = plt.gca()  
     #ax.plot(here[i],'o')
-    ax.plot(here[i],'o',c='C%g'%(i),label='%g'%(i+1))
+    ax.plot(here[i],'o-',c='C%g'%(i),label='%g'%(i+1))
     ax.plot(slope[i]*tim+b1full[i],ls='dotted',c='C%g'%(i),lw=2,label='%g slope=%1.3f'%(i+1,slope[i]))
     plt.legend()
-plt.show()
+
 print(here)
 print(herepixel)
+diffs=[]
+diff=[]
+for i in range(0,len(here)):
+
+
+    for j in range(0,len(here[i])-1):
+        diff.append(abs(here[i][j+1]-here[i][j]))
+    meandiff=np.mean(diff)
+    diffs.append(meandiff)
+meandiffs=np.mean(diffs)
+
+print('meandiffs:', meandiffs)
+plt.show()
+                    checksss=0
+
+                    for i in range(0,len(modeclusterenergy)-2):
+                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                            checksss=1
+                    if checksss==0:
+                        here.append(modeclusterenergy)
+                        herepixel.append(modeclusterenergypixel)   
