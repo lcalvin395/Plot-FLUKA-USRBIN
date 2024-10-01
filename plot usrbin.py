@@ -2074,5 +2074,5 @@ for i in range(0,len(here)):
     diffs.append(meandiff)
 meandiffs=np.mean(diffs)
 
-print('meandiffs:', meandiffs)
+print('mean slope:', np.mean(slope))
 plt.show()
