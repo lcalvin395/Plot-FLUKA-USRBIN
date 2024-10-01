@@ -9696,5 +9696,7 @@ for i in range(0,len(here)):
 meandiffs=np.mean(diffs)
 
 print('mean slope:', np.mean(slope))
+print('max slope: ', max(slope))
+print('min slope: ', min(slope))
 plt.show()
 print(slope[0])
