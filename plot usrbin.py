@@ -9697,3 +9697,4 @@ meandiffs=np.mean(diffs)
 
 print('mean slope:', np.mean(slope))
 plt.show()
+print(slope[0])
