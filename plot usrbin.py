@@ -9655,7 +9655,7 @@ for i in range(0,len(here)):
     #formean.remove(1.0)
     tim = np.arange(0,len(here[i]))
     m1, b1 = np.polyfit(tim, here[i], 1)
-    slope.append(m1)
+    slope.append(abs(m1))
     b1full.append(b1)
     stand=st.stdev(here[i])
     #if (1-(np.mean(formean)))<0.2:
