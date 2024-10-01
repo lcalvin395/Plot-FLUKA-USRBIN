@@ -352,7 +352,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -670,7 +670,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -985,7 +985,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -1303,7 +1303,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -1621,7 +1621,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -1937,7 +1937,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -2252,7 +2252,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -2567,7 +2567,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -2882,7 +2882,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -3198,7 +3198,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -3513,7 +3513,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -3829,7 +3829,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -4144,7 +4144,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -4459,7 +4459,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -4774,7 +4774,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -5089,7 +5089,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -5404,7 +5404,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -5721,7 +5721,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -6038,7 +6038,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -6355,7 +6355,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -6672,7 +6672,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -6989,7 +6989,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -7306,7 +7306,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -7623,7 +7623,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -7940,7 +7940,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -8257,7 +8257,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -8574,7 +8574,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
@@ -8891,7 +8891,7 @@ if do=="yes":
                     checksss=0
 
                     for i in range(0,len(modeclusterenergy)-2):
-                        if modeclusterenergy[i]==modeclusterenergy[i+1] and modeclusterenergy[i]==modeclusterenergy[i+2]:
+                        if modeclusterenergy[i]==modeclusterenergy[i+1]:
                             checksss=1
                     if checksss==0:
                         here.append(modeclusterenergy)
