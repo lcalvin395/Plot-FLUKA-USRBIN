@@ -1512,6 +1512,8 @@ f=0
 g=0
 q=[]
 avenergy=[]
+here=[]
+herepixel=[]
 total=0
 
 if particle1=='muon':
@@ -1657,6 +1659,7 @@ if do=="yes":
             e=0
             clusterenergy=[]
             modeclusterenergy=[]
+            modeclusterenergypixel=[]
             clusterxy=[]
             while len(pixelist)>0:
                 #print('here')
@@ -1671,6 +1674,7 @@ if do=="yes":
                 clusterxy.append([x[pixel],y[pixel]])
                 clusterenergy.append(z[pixel])
                 modeclusterenergy.append(z[pixel]*primaries*0.00546875*0.00546875*0.1*(10**6))
+                modeclusterenergypixel.append(pixel)
                 if jp==0:
                     print('heeeeeeeeeere:',z[pixel])
                 #if g==10679:
@@ -1779,8 +1783,14 @@ if do=="yes":
                     int3=list((int2)*5)
                     plotmodeaveenergy.append(st.mode(int3))
                     meanenergyincluster.append(np.mean(modeclusterenergy))
-                    if jp<1:
-                        here.append(modeclusterenergy)
+
+
+
+                    if jp<30:
+                        if jp>0:
+
+                            here.append(modeclusterenergy)
+                            herepixel.append(modeclusterenergypixel)
                         xy.append(clusterxy)
                         print(clusterxy)
                         print(n)
@@ -1960,8 +1970,8 @@ for j in range(1,16,1):
 
 
 
-here2=np.array(here)
-here3=np.around(here2,0)
+#here2=np.array(here)
+#here3=np.around(here2,0)
 #print('HERE:',here3)
 
 print(xy)
@@ -2025,6 +2035,49 @@ for j in range(0,55,5):
 
 
 print(len(listofclustersize))
+
+
+
+
+
+slope=[]
+b1full=[]
+for i in range(0,len(here)):
+    maxx=max(here[i])
+
+    for j in range(0,len(here[i])):
+        
+        here[i][j]=here[i][j]/maxx
+    formean=here[i][:]
+    formean.remove(1.0)
+    tim = np.arange(0,len(here[i]))
+    m1, b1 = np.polyfit(tim, here[i], 1)
+    slope.append(m1)
+    b1full.append(b1)
+    stand=st.stdev(here[i])
+    #if (1-(np.mean(formean)))<0.2:
+    #   print(i+1) 
+    #print('Track Number:',i+1,'\nSlope:',m1)
+    normstand=stand/(len(here[i]))        #standard deviation normalised into standard deviation of the slope. this is due to the stdev being from the y axis. m=rise/run, so stdev needs divid by run
+    if abs(slope[i])<normstand:
+        print('slope:',slope[i])
+        print('stand:',stand)
+        print('run:',len(here[i]))
+        print('normstand:',normstand)
+        print(i+1)
+
+
+fig, ax=plt.subplots()
+ax = plt.gca() 
+plt.ylim(0,1.2)
+for i in range(0,10):
+ 
+    #ax.plot(here[i],'o')
+    ax.plot(here[i],'o-',c='C%g'%(i),label='%g'%(i+1))
+    ax.plot(slope[i]*tim+b1full[i],ls='dotted',c='C%g'%(i),lw=2,label='%g slope=%1.3f'%(i+1,slope[i]))
+    plt.legend()
 plt.show()
+print(here)
+print(herepixel)
 
 
