@@ -1867,7 +1867,7 @@ print(coefferr)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muoncoeffsave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]),float(coeffsave[2][q]))) # works with any number of elements in a line
-        if coeffsave[0][q]==50:
+        if coeffsave[1][q]==50:
             break
 
 
@@ -1945,7 +1945,7 @@ for q in range(0,len(counts)):
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
-        if tracksave[0][q]==15:
+        if tracksave[1][q]==15:
             break
 
 
@@ -2011,7 +2011,7 @@ for q in range(0,len(counts)):
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muonmeansave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(meansave[1][q]),float(meansave[0][q]))) # works with any number of elements in a line  
-        if meansave[0][q]==50:
+        if meansave[1][q]==50:
             break
 
 #50MeV
