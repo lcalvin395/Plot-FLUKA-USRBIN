@@ -9396,8 +9396,8 @@ for i in range(0,len(listofclustersize)):
 fig, ax=plt.subplots()   
 binwidth=1
 
-plt.hist(listofclustersize, bins=range(0, int(max(listofclustersize) + binwidth)), color='b', width=1, weights=weights)
-counts, bins, bars = plt.hist(listofclustersize, bins=range(0, int(max(listofclustersize) + binwidth)), color='b', width=1, weights=weights)
+plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), color='b', width=1, weights=weights)
+counts, bins, bars = plt.hist(listofclustersize, bins=range(int(min(listofclustersize)), int(max(listofclustersize) + binwidth)), color='b', width=1, weights=weights)
 plt.xlabel("Size of Cluster - pixels")
 plt.ylabel('%N')
 xlim=40
@@ -9557,8 +9557,8 @@ plt.ylabel('%N')
 #ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5), color='b')
 #counts, bins, bars = ax.hist(coeffvariation, bins=(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5), color='b')
 #counts, bins, bars =ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b')
-ax.hist(coeffvariation, bins=range(0, int(max(coeffvariation) + binwidth), binwidth), color='b', weights=weights)
-counts, bins, bars =ax.hist(coeffvariation, bins=range(0, int(max(coeffvariation) + binwidth), binwidth), color='b', weights=weights)
+ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b', weights=weights)
+counts, bins, bars =ax.hist(coeffvariation, bins=range(int(min(coeffvariation)), int(max(coeffvariation) + binwidth), binwidth), color='b', weights=weights)
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 
 
@@ -9603,8 +9603,8 @@ for i in range(0,len(meanenergyincluster)):
 binwidth=5
 fig, ax=plt.subplots()   
 ax = plt.gca()
-ax.hist(meanenergyincluster, bins=range(0, int(max(meanenergyincluster) + binwidth),binwidth),color='b', weights=weights)
-counts, bins, bars = ax.hist(meanenergyincluster, bins=range(0, int(max(meanenergyincluster) + binwidth),binwidth),color='b', weights=weights)
+ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth),binwidth),color='b', weights=weights)
+counts, bins, bars = ax.hist(meanenergyincluster, bins=range(int(min(meanenergyincluster)), int(max(meanenergyincluster) + binwidth),binwidth),color='b', weights=weights)
 plt.xlabel("Mean energy - KeV")
 plt.ylabel('%N')
 xlim=250
