@@ -1851,17 +1851,24 @@ ax.hist(coeffvariation, bins=range(0, int(max(coeffvariation) + binwidth), binwi
 counts, bins, bars =ax.hist(coeffvariation, bins=range(0, int(max(coeffvariation) + binwidth), binwidth), color='b',weights=weights)
 plt.savefig('/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/{}_coeff_variation_in_cluster_hist.png'.format(particle1),bbox_inches='tight', dpi=1000)
 #print(counts, bins, bars)
+coefferr=[]
+for i in range(0,len(counts)):
+    coefferr.append(np.sqrt(counts[i]*len(coeffvariation)))
+    coefferr[i]=coefferr[i]/len(coeffvariation)
+
 
 #coeffsave=np.column_stack((counts, bins))
-coeffsave=[[],[]]
+coeffsave=[[],[],[]]
 for q in range(0,len(counts)):
     coeffsave[0].append(counts[q])
     coeffsave[1].append(bins[q])
-
+    coeffsave[2].append(coefferr[q])
+print(coefferr)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muoncoeffsave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
-        txt_file.write("%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
-
+        txt_file.write("%g\t%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]),float(coeffsave[2][q]))) # works with any number of elements in a line
+        if coeffsave[0][q]==50:
+            break
 
 
 #######50MeV
@@ -1938,7 +1945,8 @@ for q in range(0,len(counts)):
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muontracksave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
-
+        if tracksave[0][q]==15:
+            break
 
 
 
@@ -2002,8 +2010,9 @@ for q in range(0,len(counts)):
 #print(tracksave)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/muonmeansave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
-        txt_file.write("%g\t%g\n"%(float(meansave[1][q]),float(meansave[0][q]))) # works with any number of elements in a line
-
+        txt_file.write("%g\t%g\n"%(float(meansave[1][q]),float(meansave[0][q]))) # works with any number of elements in a line  
+        if meansave[0][q]==50:
+            break
 
 #50MeV
 for j in range(0,55,5):
