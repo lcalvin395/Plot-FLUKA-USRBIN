@@ -9416,8 +9416,7 @@ print(tracksave)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/electracksave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(tracksave[1][q]),float(tracksave[0][q]))) # works with any number of elements in a line
-        if tracksave[1][q]==15:
-            break
+
 
 #15 pixels#
 
@@ -9575,8 +9574,7 @@ print(coeffsave)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/eleccoeffsave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(coeffsave[1][q]),float(coeffsave[0][q]))) # works with any number of elements in a line
-        if coeffsave[1][q]==50:
-            break
+
 #50MeV#
 
 for j in range(0,55,5):
@@ -9624,8 +9622,7 @@ print(meansave)
 with open("/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/elecmeansave.csv", "w") as txt_file:
     for q in range(0,len(counts)):
         txt_file.write("%g\t%g\n"%(float(meansave[1][q]),float(meansave[0][q]))) # works with any number of elements in a line
-        if meansave[1][q]==50:
-            break
+
 
 
 
